@@ -22,8 +22,6 @@ import static com.sap.piper.Prerequisites.checkScript
 @Field Set STEP_CONFIG_KEYS = []
 
 @Field Set PARAMETER_KEYS = GENERAL_CONFIG_KEYS.plus([
-    /** The stage name. If the stage name is not provided, it will be taken from the environment variable 'STAGE_NAME'.*/
-    'stage',
     /** Defines the deployment type.*/
     'enableZeroDowntimeDeployment',
     /** The source file to deploy to the SAP Cloud Platform.*/
@@ -38,7 +36,6 @@ void call(parameters = [:]) {
 
     handlePipelineStepErrors(stepName: STEP_NAME, stepParameters: parameters) {
 
-        def stageName = parameters.stage ?: env.STAGE_NAME
         def enableZeroDowntimeDeployment = parameters.enableZeroDowntimeDeployment ?: false
 
         def script = checkScript(this, parameters) ?: this
@@ -57,10 +54,8 @@ void call(parameters = [:]) {
 
         utils.pushToSWA([
             step: STEP_NAME,
-            stepParamKey1: 'stage',
-            stepParam1: stageName,
-            stepParamKey2: 'enableZeroDowntimeDeployment',
-            stepParam2: enableZeroDowntimeDeployment
+            stepParamKey1: 'enableZeroDowntimeDeployment',
+            stepParam1: enableZeroDowntimeDeployment
         ], config)
 
         def index = 1
@@ -90,10 +85,9 @@ void call(parameters = [:]) {
                     )
 
                 }
-                setDeployment(deployments, deployment, index, script, stageName)
+                deployment.run()
                 index++
             }
-            utils.runClosures(deployments)
         }
 
         if (config.neoTargets) {
@@ -114,28 +108,13 @@ void call(parameters = [:]) {
                     )
 
                 }
-                setDeployment(deployments, deployment, index, script, stageName)
+                deployment.run()
                 index++
             }
-            utils.runClosures(deployments)
         }
 
         if (!config.cfTargets && !config.neoTargets) {
             error "Deployment skipped because no targets defined!"
-        }
-    }
-}
-
-void setDeployment(deployments, deployment, index, script, stageName) {
-    deployments["Deployment ${index > 1 ? index : ''}"] = {
-        if (env.POD_NAME) {
-            dockerExecuteOnKubernetes(script: script, containerMap: ContainerMap.instance.getMap().get(stageName) ?: [:]) {
-                deployment.run()
-            }
-        } else {
-            node(env.NODE_NAME) {
-                deployment.run()
-            }
         }
     }
 }
