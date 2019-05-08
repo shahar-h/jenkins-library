@@ -981,7 +981,9 @@
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Installed and configured <a href="https://github.com/jenkinsci/slack-plugin">Jenkins Slack plugin</a>.</li>
+<li>Installed and configured <a href="https://my.slack.com/services/new/jenkins-ci">Slack JenkinsCI integration</a></li>
+<li><em>secret text</em> Jenkins credentials with the Slack token</li>
+<li>Installed and configured <a href="https://github.com/jenkinsci/slack-plugin#install-instructions-for-slack">Jenkins Slack plugin</a>.</li>
 </ul>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
 <table>
@@ -997,13 +999,13 @@
 <tr>
 <td><code>baseUrl</code></td>
 <td>no</td>
-<td></td>
+<td><code>null</code></td>
 <td></td>
 </tr>
 <tr>
 <td><code>channel</code></td>
 <td>no</td>
-<td></td>
+<td><code>null</code></td>
 <td></td>
 </tr>
 <tr>
@@ -1015,19 +1017,19 @@
 <tr>
 <td><code>credentialsId</code></td>
 <td>no</td>
-<td></td>
+<td><code>null</code></td>
 <td>Jenkins credentials id</td>
 </tr>
 <tr>
 <td><code>message</code></td>
 <td>no</td>
-<td></td>
+<td><code>null</code></td>
 <td></td>
 </tr>
 <tr>
 <td><code>script</code></td>
 <td>yes</td>
-<td></td>
+<td><code>null</code></td>
 <td></td>
 </tr>
 </tbody>

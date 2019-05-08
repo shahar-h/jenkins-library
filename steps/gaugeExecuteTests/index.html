@@ -1021,37 +1021,37 @@ Using Gauge it will be possible to have a three-tier test layout:</p>
 <tr>
 <td><code>dockerImage</code></td>
 <td>no</td>
-<td></td>
+<td>buildTool=<code>maven</code>:<code>maven:3.5-jdk-8</code><br />buildTool=<code>npm</code>:<code>node:8-stretch</code><br />buildTool=<code>bundler</code>:<code>ruby:2.5.3-stretch</code></td>
 <td></td>
 </tr>
 <tr>
 <td><code>dockerName</code></td>
 <td>no</td>
-<td></td>
+<td>buildTool=<code>maven</code>:<code>maven</code><br />buildTool=<code>npm</code>:<code>npm</code><br />buildTool=<code>bundler</code>:<code>bundler</code></td>
 <td></td>
 </tr>
 <tr>
 <td><code>dockerWorkspace</code></td>
 <td>no</td>
-<td></td>
+<td>buildTool=<code>maven</code>:<code>&lt;empty&gt;</code><br />buildTool=<code>npm</code>:<code>/home/node</code><br />buildTool=<code>bundler</code>:<code>&lt;empty&gt;</code></td>
 <td></td>
 </tr>
 <tr>
 <td><code>failOnError</code></td>
 <td>no</td>
-<td></td>
+<td><code>false</code></td>
 <td><code>true</code>, <code>false</code></td>
 </tr>
 <tr>
 <td><code>gitBranch</code></td>
 <td>no</td>
-<td></td>
+<td><code>null</code></td>
 <td></td>
 </tr>
 <tr>
 <td><code>gitSshKeyCredentialsId</code></td>
 <td>no</td>
-<td></td>
+<td>``</td>
 <td></td>
 </tr>
 <tr>
@@ -1063,19 +1063,19 @@ Using Gauge it will be possible to have a three-tier test layout:</p>
 <tr>
 <td><code>languageRunner</code></td>
 <td>no</td>
-<td></td>
+<td>buildTool=<code>maven</code>:<code>java</code><br />buildTool=<code>npm</code>:<code>js</code><br />buildTool=<code>bundler</code>:<code>ruby</code></td>
 <td></td>
 </tr>
 <tr>
 <td><code>runCommand</code></td>
 <td>no</td>
-<td></td>
+<td>buildTool=<code>maven</code>:<code>mvn test-compile gauge:execute</code><br />buildTool=<code>npm</code>:<code>gauge run</code><br />buildTool=<code>bundler</code>:<code>bundle install &amp;&amp; bundle exec gauge run</code></td>
 <td></td>
 </tr>
 <tr>
 <td><code>script</code></td>
 <td>yes</td>
-<td></td>
+<td><code>null</code></td>
 <td></td>
 </tr>
 <tr>
@@ -1087,19 +1087,19 @@ Using Gauge it will be possible to have a three-tier test layout:</p>
 <tr>
 <td><code>testOptions</code></td>
 <td>no</td>
-<td></td>
+<td>buildTool=<code>maven</code>:<code>-DspecsDir=specs</code><br />buildTool=<code>npm</code>:<code>specs</code><br />buildTool=<code>bundler</code>:<code>specs</code></td>
 <td></td>
 </tr>
 <tr>
 <td><code>testRepository</code></td>
 <td>no</td>
-<td></td>
+<td><code>null</code></td>
 <td></td>
 </tr>
 <tr>
 <td><code>testServerUrl</code></td>
 <td>no</td>
-<td></td>
+<td><code>null</code></td>
 <td></td>
 </tr>
 </tbody>
