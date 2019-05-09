@@ -1029,6 +1029,12 @@
 <td>'CF', 'NEO', 'XSA'</td>
 </tr>
 <tr>
+<td><code>defaultNpmRegistry</code></td>
+<td>no</td>
+<td><code>null</code></td>
+<td></td>
+</tr>
+<tr>
 <td><code>dockerImage</code></td>
 <td>no</td>
 <td><code>ppiper/mta-archive-builder</code></td>
@@ -1075,6 +1081,7 @@
 <ul>
 <li><code>applicationName</code> - The name of the application which is being built. If the parameter has been provided and no <code>mta.yaml</code> exists, the <code>mta.yaml</code> will be automatically generated using this parameter and the information (<code>name</code> and <code>version</code>) from <code>package.json</code> before the actual build starts.</li>
 <li><code>buildTarget</code> - The target platform to which the mtar can be deployed.</li>
+<li><code>defaultNpmRegistry</code> - Url to the npm registry that should be used for installing npm dependencies.</li>
 <li><code>dockerImage</code> - Name of the docker image that should be used. If empty, Docker is not used and the command is executed directly on the Jenkins system.</li>
 <li><code>dockerOptions</code> - Docker options to be set when starting the container (List or String).</li>
 <li><code>extension</code> - The path to the extension descriptor file.</li>
@@ -1104,6 +1111,11 @@
 <td><code>buildTarget</code></td>
 <td></td>
 <td>X</td>
+</tr>
+<tr>
+<td><code>defaultNpmRegistry</code></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td><code>dockerImage</code></td>
