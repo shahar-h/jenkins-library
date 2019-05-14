@@ -1274,16 +1274,22 @@
 <p>none</p>
 <h2 id="exceptions">Exceptions<a class="headerlink" href="#exceptions" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>Exception</code>:</li>
+<li><code>Exception</code>:<ul>
 <li>If <code>source</code> is not provided.</li>
 <li>If <code>propertiesFile</code> is not provided (when using <code>'WAR_PROPERTIESFILE'</code> deployment mode).</li>
 <li>If <code>application</code> is not provided (when using <code>'WAR_PARAMS'</code> deployment mode).</li>
 <li>If <code>runtime</code> is not provided (when using <code>'WAR_PARAMS'</code> deployment mode).</li>
 <li>If <code>runtimeVersion</code> is not provided (when using <code>'WAR_PARAMS'</code> deployment mode).</li>
-<li><code>AbortException</code>:</li>
+</ul>
+</li>
+<li><code>AbortException</code>:<ul>
 <li>If neo-java-web-sdk is not installed, or <code>neoHome</code>is wrong.</li>
-<li><code>CredentialNotFoundException</code>:</li>
+</ul>
+</li>
+<li><code>CredentialNotFoundException</code>:<ul>
 <li>If the credentials cannot be resolved.</li>
+</ul>
+</li>
 </ul>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="n">neoDeploy</span> <span class="nl">script:</span> <span class="k">this</span><span class="o">,</span> <span class="nl">source:</span> <span class="s1">&#39;path/to/archiveFile.mtar&#39;</span><span class="o">,</span> <span class="nl">neo:</span> <span class="o">[</span><span class="nl">credentialsId:</span> <span class="s1">&#39;my-credentials-id&#39;</span><span class="o">,</span> <span class="nl">host:</span> <span class="n">hana</span><span class="o">.</span><span class="na">example</span><span class="o">.</span><span class="na">org</span><span class="o">]</span>
