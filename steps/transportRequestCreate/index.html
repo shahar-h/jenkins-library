@@ -1275,8 +1275,7 @@ resource in an custom shared library.</p>
 
 <span class="c1">// inside the shared lib denoted by &#39;foo&#39; the additional configuration file</span>
 <span class="c1">// needs to be located under &#39;resources&#39; (&#39;resoures/myConfig.yml&#39;)</span>
-<span class="n">prepareDefaultValues</span> <span class="nl">script:</span> <span class="k">this</span><span class="o">,</span>
-                             <span class="nl">customDefaults:</span> <span class="s1">&#39;myConfig.yml&#39;</span>
+<span class="n">prepareDefaultValues</span> <span class="nl">script:</span> <span class="k">this</span><span class="o">,</span> <span class="nl">customDefaults:</span> <span class="s1">&#39;myConfig.yml&#39;</span>
 </pre></div>
 
 <p>Example content of <code>'resources/myConfig.yml'</code> in branch <code>'master'</code> of the repository denoted by

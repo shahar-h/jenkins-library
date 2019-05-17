@@ -1431,23 +1431,27 @@ resource in an custom shared library.</p>
 </ul>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="c1">// SOLMAN</span>
-<span class="n">transportRequestUploadFile</span> <span class="nl">script:</span><span class="k">this</span><span class="o">,</span>
-                           <span class="nl">changeDocumentId:</span> <span class="s1">&#39;001&#39;</span><span class="o">,</span>   <span class="c1">// typically provided via git commit history</span>
-                           <span class="nl">transportRequestId:</span> <span class="s1">&#39;001&#39;</span><span class="o">,</span> <span class="c1">// typically provided via git commit history</span>
-                           <span class="nl">applicationId:</span> <span class="s1">&#39;001&#39;</span><span class="o">,</span>
-                           <span class="nl">filePath:</span> <span class="s1">&#39;/path&#39;</span><span class="o">,</span>
-                           <span class="nl">changeManagement:</span><span class="o">[</span>
-                             <span class="nl">type:</span> <span class="s1">&#39;SOLMAN&#39;</span>
-                             <span class="nl">endpoint:</span> <span class="s1">&#39;https://example.org/cm&#39;</span>
-                           <span class="o">]</span>
+<span class="n">transportRequestUploadFile</span><span class="o">(</span>
+  <span class="nl">script:</span> <span class="k">this</span><span class="o">,</span>
+  <span class="nl">changeDocumentId:</span> <span class="s1">&#39;001&#39;</span><span class="o">,</span>   <span class="c1">// typically provided via git commit history</span>
+  <span class="nl">transportRequestId:</span> <span class="s1">&#39;001&#39;</span><span class="o">,</span> <span class="c1">// typically provided via git commit history</span>
+  <span class="nl">applicationId:</span> <span class="s1">&#39;001&#39;</span><span class="o">,</span>
+  <span class="nl">filePath:</span> <span class="s1">&#39;/path&#39;</span><span class="o">,</span>
+  <span class="nl">changeManagement:</span> <span class="o">[</span>
+    <span class="nl">type:</span> <span class="s1">&#39;SOLMAN&#39;</span>
+    <span class="nl">endpoint:</span> <span class="s1">&#39;https://example.org/cm&#39;</span>
+  <span class="o">]</span>
+<span class="o">)</span>
 <span class="c1">// CTS</span>
-<span class="n">transportRequestUploadFile</span> <span class="nl">script:</span><span class="k">this</span><span class="o">,</span>
-                           <span class="nl">transportRequestId:</span> <span class="s1">&#39;001&#39;</span><span class="o">,</span> <span class="c1">// typically provided via git commit history</span>
-                           <span class="nl">filePath:</span> <span class="s1">&#39;/path&#39;</span><span class="o">,</span>
-                           <span class="nl">changeManagement:</span><span class="o">[</span>
-                             <span class="nl">type:</span> <span class="s1">&#39;CTS&#39;</span>
-                             <span class="nl">endpoint:</span> <span class="s1">&#39;https://example.org/cm&#39;</span>
-                           <span class="o">]</span>
+<span class="n">transportRequestUploadFile</span><span class="o">(</span>
+  <span class="nl">script:</span> <span class="k">this</span><span class="o">,</span>
+  <span class="nl">transportRequestId:</span> <span class="s1">&#39;001&#39;</span><span class="o">,</span> <span class="c1">// typically provided via git commit history</span>
+  <span class="nl">filePath:</span> <span class="s1">&#39;/path&#39;</span><span class="o">,</span>
+  <span class="nl">changeManagement:</span> <span class="o">[</span>
+    <span class="nl">type:</span> <span class="s1">&#39;CTS&#39;</span>
+    <span class="nl">endpoint:</span> <span class="s1">&#39;https://example.org/cm&#39;</span>
+  <span class="o">]</span>
+<span class="o">)</span>
 </pre></div>
                 
                   
