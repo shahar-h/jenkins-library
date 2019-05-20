@@ -1,2 +1,3 @@
 # Test case configuration
 referenceAppRepoUrl: "https://github.com/sap/cloud-s4-sdk-book"
+referenceAppRepoBranch: "consumer-test-neo"
