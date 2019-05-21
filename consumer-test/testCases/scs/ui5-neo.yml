@@ -1,3 +1,7 @@
 # Test case configuration
-referenceAppRepoUrl: "https://github.com/o-liver/openui5-sample-app"
-referenceAppRepoBranch: "ui5-neo"
+referenceAppRepo:
+  url: "https://github.com/o-liver/openui5-sample-app"
+  branch: "ui5-neo"
+deployCredentialEnv:
+  username: "NEO_DEPLOY_USERNAME"
+  password: "NEO_DEPLOY_PASSWORD"
