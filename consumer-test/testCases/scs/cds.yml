@@ -1,0 +1,7 @@
+# Test case configuration
+referenceAppRepo:
+  url: "https://github.com/o-liver/cloud-samples-itelo"
+  branch: "piper-cds-test"
+deployCredentialEnv:
+  username: "CF_DEPLOY_USERNAME"
+  password: "CF_DEPLOY_PASSWORD"
