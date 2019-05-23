@@ -1140,7 +1140,7 @@ Using Gauge it will be possible to have a three-tier test layout:</p>
 <li><code>installCommand</code> - Defines the command for installing Gauge. In case the <code>dockerImage</code> already contains Gauge it can be set to empty: ``.</li>
 <li><code>languageRunner</code> - Defines the Gauge language runner to be used.</li>
 <li><code>runCommand</code> - Defines the command which is used for executing Gauge.</li>
-<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the this parameter, as in <code>script: this</code>. This allows the function to access the commonPipelineEnvironment for retrieving, for example, configuration parameters.</li>
+<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
 <li><code>stashContent</code> - Defines if specific stashes should be considered for the tests.</li>
 <li><code>testOptions</code> - Allows to set specific options for the Gauge execution. Details can be found for example <a href="https://github.com/getgauge/gauge-maven-plugin#executing-specs">in the Gauge Maven plugin documentation</a></li>
 <li><code>testRepository</code> - Defines the repository containing the tests, in case the test implementation is stored in a different repository than the code itself.</li>

@@ -1355,7 +1355,7 @@ docker run -d -p 3000:3000 --name grafana --restart=always --link influxdb:influ
 <li><code>customDataTags</code> - Defines tags (map of key-value pairs) to be written to Influx into measurement <code>jenkins_custom_data</code>. Defaults to <code>commonPipelineEnvironment.getInfluxCustomDataTags()</code></li>
 <li><code>influxPrefix</code> - Defines a custom prefix. For example in multi branch pipelines, where every build is named after the branch built and thus you have different builds called 'master' that report different metrics.</li>
 <li><code>influxServer</code> - Defines the name of the Influx server as configured in Jenkins global configuration.</li>
-<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the this parameter, as in <code>script: this</code>. This allows the function to access the commonPipelineEnvironment for retrieving, for example, configuration parameters.</li>
+<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
 <li><code>wrapInNode</code> - Defines if a dedicated node/executor should be created in the pipeline run. This is especially relevant when running the step in a declarative <code>POST</code> stage where by default no executor is available.</li>
 </ul>
 <h2 id="step-configuration">Step configuration<a class="headerlink" href="#step-configuration" title="Permanent link">&para;</a></h2>

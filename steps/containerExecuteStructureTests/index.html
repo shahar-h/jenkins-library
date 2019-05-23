@@ -1101,7 +1101,7 @@
 <li><code>dockerOptions</code> - Docker options to be set when starting the container (List or String).</li>
 <li><code>failOnError</code> - Defines the behavior, in case tests fail.</li>
 <li><code>pullImage</code> - Only relevant for testDriver 'docker'.</li>
-<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the this parameter, as in <code>script: this</code>. This allows the function to access the commonPipelineEnvironment for retrieving, for example, configuration parameters.</li>
+<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
 <li><code>stashContent</code> - Specific stashes that should be considered for the step execution.</li>
 <li><code>testConfiguration</code> - Container structure test configuration in yml or json format. You can pass a pattern in order to execute multiple tests.</li>
 <li><code>testDriver</code> - Container structure test driver to be used for testing, please see https://github.com/GoogleContainerTools/container-structure-test for details.</li>

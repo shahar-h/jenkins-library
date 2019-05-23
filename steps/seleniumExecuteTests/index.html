@@ -1281,7 +1281,7 @@
 <li><code>failOnError</code> - With <code>failOnError</code> the behavior in case tests fail can be defined.</li>
 <li><code>gitBranch</code> - Only if <code>testRepository</code> is provided: Branch of testRepository, defaults to master.</li>
 <li><code>gitSshKeyCredentialsId</code> - Only if <code>testRepository</code> is provided: Credentials for a protected testRepository</li>
-<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the this parameter, as in <code>script: this</code>. This allows the function to access the commonPipelineEnvironment for retrieving, for example, configuration parameters.</li>
+<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
 <li><code>sidecarEnvVars</code> - as <code>dockerEnvVars</code> for the sidecar container</li>
 <li><code>sidecarImage</code> - as <code>dockerImage</code> for the sidecar container</li>
 <li><code>sidecarName</code> - as <code>dockerName</code> for the sidecar container</li>

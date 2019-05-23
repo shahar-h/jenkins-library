@@ -1033,7 +1033,7 @@
 <li><code>cfTargets</code> - Defines the targets to deploy on cloudFoundry.</li>
 <li><code>enableZeroDowntimeDeployment</code> - Defines the deployment type.</li>
 <li><code>neoTargets</code> - Defines the targets to deploy on neo.</li>
-<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the this parameter, as in <code>script: this</code>. This allows the function to access the commonPipelineEnvironment for retrieving, for example, configuration parameters.</li>
+<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
 <li><code>source</code> - The source file to deploy to the SAP Cloud Platform.</li>
 <li><code>stage</code> - The stage name. If the stage name is not provided, it will be taken from the environment variable 'STAGE_NAME'.</li>
 </ul>

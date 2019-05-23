@@ -1252,7 +1252,7 @@ access protection imposed on the WhiteSource backend would simply allow access b
 <li><code>parallelLimit</code> - Limit of parallel jobs being run at once in case of <code>scanType: 'mta'</code> based scenarios, defaults to <code>15</code>.</li>
 <li><code>reporting</code> - Whether assessment is being done at all, defaults to <code>true</code>.</li>
 <li><code>scanType</code> - Type of development stack used to implement the solution.</li>
-<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the this parameter, as in <code>script: this</code>. This allows the function to access the commonPipelineEnvironment for retrieving, for example, configuration parameters.</li>
+<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
 <li><code>securityVulnerabilities</code> - Whether security compliance is considered and reported as part of the assessment.</li>
 <li><code>stashContent</code> - List of stashes to be unstashed into the workspace before performing the scan.</li>
 <li><code>timeout</code> - Timeout in seconds until a HTTP call is forcefully terminated.</li>

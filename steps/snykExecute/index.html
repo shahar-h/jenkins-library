@@ -1106,7 +1106,7 @@
 <li><code>exclude</code> - Only scanType 'mta': Exclude modules from MTA projects.</li>
 <li><code>monitor</code> - Monitor the application's dependencies for new vulnerabilities.</li>
 <li><code>scanType</code> - The type of project that should be scanned.</li>
-<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the this parameter, as in <code>script: this</code>. This allows the function to access the commonPipelineEnvironment for retrieving, for example, configuration parameters.</li>
+<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
 <li><code>snykCredentialsId</code> - Credentials for accessing the Snyk API.</li>
 <li><code>snykOrg</code> - Only needed for <code>monitor: true</code>: The organisation ID to determine the organisation to report to.</li>
 <li><code>toHtml</code> - Generate and archive a HTML report.</li>

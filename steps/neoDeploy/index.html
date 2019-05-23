@@ -1167,7 +1167,7 @@
 <li><code>neo/runtimeVersion</code> - Version of SAP Cloud Platform application runtime.</li>
 <li><code>neo/size</code> - Compute unit (VM) size. Acceptable values: lite, pro, prem, prem-plus.</li>
 <li><code>neo/vmArguments</code> - String of VM arguments passed to the JVM.</li>
-<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the this parameter, as in <code>script: this</code>. This allows the function to access the commonPipelineEnvironment for retrieving, for example, configuration parameters.</li>
+<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
 <li><code>source</code> - The path to the archive for deployment to SAP CP. If not provided <code>mtarFilePath</code> from commom pipeline environment is used instead.</li>
 <li><code>warAction</code> - Action mode when using WAR file mode. Available options are <code>deploy</code> (default) and <code>rolling-update</code> which performs update of an application without downtime in one go.</li>
 </ul>

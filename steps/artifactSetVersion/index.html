@@ -1120,7 +1120,7 @@ If you require strict reproducibility of your builds, this should be used.</p>
 <li><code>gitSshUrl</code> - Defines the git ssh url to the source code repository.</li>
 <li><code>gitUserEMail</code> - Allows to overwrite the global git setting 'user.email' available on your Jenkins server.</li>
 <li><code>gitUserName</code> - Allows to overwrite the global git setting 'user.name' available on your Jenkins server.</li>
-<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the this parameter, as in <code>script: this</code>. This allows the function to access the commonPipelineEnvironment for retrieving, for example, configuration parameters.</li>
+<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
 <li><code>tagPrefix</code> - Defines the prefix which is used for the git tag which is written during the versioning run.</li>
 <li><code>timestamp</code> - Defines the timestamp to be used in the automatic version string. You could overwrite the default behavior by explicitly setting this string.</li>
 <li><code>timestampTemplate</code> - Defines the template for the timestamp which will be part of the created version.</li>

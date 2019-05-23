@@ -1265,7 +1265,7 @@
 <li><code>findbugs</code> - Publishes Findbugs findings with the <a href="https://plugins.jenkins.io/findbugs">Findbugs plugin</a>.</li>
 <li><code>pmd</code> - Publishes PMD findings with the <a href="https://plugins.jenkins.io/pmd">PMD plugin</a>.</li>
 <li><code>pylint</code> - Publishes PyLint findings with the <a href="https://plugins.jenkins.io/warnings">Warnings plugin</a>, pylint needs to run with <code>--output-format=parseable</code> option.</li>
-<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the this parameter, as in <code>script: this</code>. This allows the function to access the commonPipelineEnvironment for retrieving, for example, configuration parameters.</li>
+<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
 <li><code>tasks</code> - Searches and publishes TODOs in files with the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Task+Scanner+Plugin">Task Scanner Plugin</a>.</li>
 </ul>
 <h3 id="aggregation">aggregation<a class="headerlink" href="#aggregation" title="Permanent link">&para;</a></h3>

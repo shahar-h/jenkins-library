@@ -1116,7 +1116,7 @@
 <li><code>options</code> - A list of options which are passed to the <code>sonar-scanner</code>.</li>
 <li><code>organization</code> - Organization that the project will be assigned to in SonarCloud.io.</li>
 <li><code>projectVersion</code> - The project version that is reported to SonarQube. @default: major number of <code>commonPipelineEnvironment.getArtifactVersion()</code></li>
-<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the this parameter, as in <code>script: this</code>. This allows the function to access the commonPipelineEnvironment for retrieving, for example, configuration parameters.</li>
+<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
 <li><code>sonarTokenCredentialsId</code> - The Jenkins credentialsId for a SonarQube token. It is needed for non-anonymous analysis runs. see https://sonarcloud.io/account/security</li>
 </ul>
 <h2 id="step-configuration">Step configuration<a class="headerlink" href="#step-configuration" title="Permanent link">&para;</a></h2>

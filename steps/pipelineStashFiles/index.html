@@ -1028,7 +1028,7 @@
 </tbody>
 </table>
 <ul>
-<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the this parameter, as in <code>script: this</code>. This allows the function to access the commonPipelineEnvironment for retrieving, for example, configuration parameters.</li>
+<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
 <li><code>stashExcludes</code> - Can be used to overwrite the default behavior of existing stashes as well as to define additional stashes. This parameter handles the <em>excludes</em> and can be defined as a map of stash name and exclude patterns. Exclude pattern has to be a string with comma separated patterns as per <a href="https://jenkins.io/doc/pipeline/steps/workflow-basic-steps/#stash-stash-some-files-to-be-used-later-in-the-build">Pipeline basic step <code>stash</code></a></li>
 <li><code>stashIncludes</code> - Can be used to overwrite the default behavior of existing stashes as well as to define additional stashes. This parameter handles the <em>includes</em> and can be defined as a map of stash name and include patterns. Include pattern has to be a string with comma separated patterns as per <a href="https://jenkins.io/doc/pipeline/steps/workflow-basic-steps/#stash-stash-some-files-to-be-used-later-in-the-build">Pipeline basic step <code>stash</code></a></li>
 </ul>

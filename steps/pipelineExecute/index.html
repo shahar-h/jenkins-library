@@ -1076,7 +1076,7 @@ several projects using <code>pipelineExecute</code> as outlined in the example b
 <li><code>credentialsId</code> - The Jenkins credentials containing user and password needed to access a private git repository. In case access to the repository containing the pipeline script is restricted the credentialsId of the credentials used for accessing the repository needs to be provided. The corresponding credentials needs to be configured in Jenkins accordingly.</li>
 <li><code>path</code> - The path to the Jenkinsfile, inside the repository, to be loaded.</li>
 <li><code>repoUrl</code> - The url to the git repository of the pipeline to be loaded.</li>
-<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the this parameter, as in <code>script: this</code>. This allows the function to access the commonPipelineEnvironment for retrieving, for example, configuration parameters.</li>
+<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
 </ul>
 <h2 id="step-configuration">Step configuration<a class="headerlink" href="#step-configuration" title="Permanent link">&para;</a></h2>
 <p>We recommend to define values of step parameters via <a href="../../configuration/">config.yml file</a>.</p>

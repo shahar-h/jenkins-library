@@ -1150,7 +1150,7 @@
 <li><code>installCommand</code> - The command that is executed to install the test tool.</li>
 <li><code>modules</code> - Define the paths of the modules to execute tests on.</li>
 <li><code>runCommand</code> - The command that is executed to start the tests.</li>
-<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the this parameter, as in <code>script: this</code>. This allows the function to access the commonPipelineEnvironment for retrieving, for example, configuration parameters.</li>
+<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
 <li><code>sidecarEnvVars</code> - A map of environment variables to set in the sidecar container, similar to <code>dockerEnvVars</code>.</li>
 <li><code>sidecarImage</code> - The name of the docker image of the sidecar container. If empty, no sidecar container is started.</li>
 <li><code>sidecarName</code> - as <code>dockerName</code> for the sidecar container</li>

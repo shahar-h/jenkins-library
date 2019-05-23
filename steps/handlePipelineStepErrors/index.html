@@ -1089,7 +1089,7 @@
 <li><code>libraryDocumentationUrl</code> - Defines the url of the library's documentation that will be used to generate the corresponding links to the step documentation.</li>
 <li><code>libraryRepositoryUrl</code> - Defines the url of the library's repository that will be used to generate the corresponding links to the step implementation.</li>
 <li><code>mandatorySteps</code> - Defines a list of mandatory steps (step names) which have to be successful (=stop the pipeline), even if <code>failOnError: false</code></li>
-<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the this parameter, as in <code>script: this</code>. This allows the function to access the commonPipelineEnvironment for retrieving, for example, configuration parameters.</li>
+<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
 <li><code>stepName</code> - Defines the name of the step for which the error handling is active. It will be shown in the console log.</li>
 <li><code>stepNameDoc</code> - Defines the documented step, in case the documentation reference should point to a different step.</li>
 <li><code>stepParameters</code> - Passes the parameters of the step which uses the error handling onto the error handling. The list of parameters is then shown in the console output.</li>
