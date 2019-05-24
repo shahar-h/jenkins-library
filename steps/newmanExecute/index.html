@@ -614,6 +614,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#dependencies" title="Dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exceptions" title="Exceptions" class="md-nav__link">
     Exceptions
   </a>
@@ -987,6 +994,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#dependencies" title="Dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exceptions" title="Exceptions" class="md-nav__link">
     Exceptions
   </a>
@@ -1201,6 +1215,22 @@
 </table>
 <h2 id="side-effects">Side effects<a class="headerlink" href="#side-effects" title="Permanent link">&para;</a></h2>
 <p>Step uses <code>dockerExecute</code> inside.</p>
+<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
+<p>The step depends on the following Jenkins plugins</p>
+<ul>
+<li><a href="https://plugins.jenkins.io/docker">docker</a></li>
+<li><a href="https://plugins.jenkins.io/git">git</a></li>
+<li><a href="https://plugins.jenkins.io/kubernetes">kubernetes</a></li>
+<li><a href="https://plugins.jenkins.io/pipeline-utility-steps">pipeline-utility-steps</a></li>
+<li><a href="https://plugins.jenkins.io/workflow-basic-steps">workflow-basic-steps</a></li>
+<li><a href="https://plugins.jenkins.io/workflow-cps-global-lib">workflow-cps-global-lib</a></li>
+<li><a href="https://plugins.jenkins.io/workflow-durable-task-step">workflow-durable-task-step</a></li>
+</ul>
+<p>The kubernetes plugin is only used if running in a kubernetes environment.
+Transitive dependencies are omitted.</p>
+<p>The list might be incomplete.</p>
+<p>Consider using the <a href="https://cloud.docker.com/u/ppiper/repository/docker/ppiper/jenkins-master">ppiper/jenkins-master</a>
+docker image. This images comes with preinstalled plugins.</p>
 <h2 id="exceptions">Exceptions<a class="headerlink" href="#exceptions" title="Permanent link">&para;</a></h2>
 <p>none</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>

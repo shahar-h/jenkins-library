@@ -799,6 +799,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#dependencies" title="Dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exceptions" title="Exceptions" class="md-nav__link">
     Exceptions
   </a>
@@ -968,6 +975,13 @@
         <li class="md-nav__item">
   <a href="#step-configuration" title="Step configuration" class="md-nav__link">
     Step configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" title="Dependencies" class="md-nav__link">
+    Dependencies
   </a>
   
 </li>
@@ -1377,6 +1391,22 @@
 </tr>
 </tbody>
 </table>
+<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
+<p>The step depends on the following Jenkins plugins</p>
+<ul>
+<li><a href="https://plugins.jenkins.io/credentials-binding">credentials-binding</a></li>
+<li><a href="https://plugins.jenkins.io/docker">docker</a></li>
+<li><a href="https://plugins.jenkins.io/kubernetes">kubernetes</a></li>
+<li><a href="https://plugins.jenkins.io/pipeline-utility-steps">pipeline-utility-steps</a></li>
+<li><a href="https://plugins.jenkins.io/workflow-basic-steps">workflow-basic-steps</a></li>
+<li><a href="https://plugins.jenkins.io/workflow-cps-global-lib">workflow-cps-global-lib</a></li>
+<li><a href="https://plugins.jenkins.io/workflow-durable-task-step">workflow-durable-task-step</a></li>
+</ul>
+<p>The kubernetes plugin is only used if running in a kubernetes environment.
+Transitive dependencies are omitted.</p>
+<p>The list might be incomplete.</p>
+<p>Consider using the <a href="https://cloud.docker.com/u/ppiper/repository/docker/ppiper/jenkins-master">ppiper/jenkins-master</a>
+docker image. This images comes with preinstalled plugins.</p>
 <p>The step is configured using a customer configuration file provided as
 resource in an custom shared library.</p>
 <div class="codehilite"><pre><span></span><span class="nd">@Library</span><span class="o">(</span><span class="s1">&#39;piper-lib-os@master&#39;</span><span class="o">)</span> <span class="n">_</span>

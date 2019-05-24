@@ -413,6 +413,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#dependencies" title="Dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#example" title="Example" class="md-nav__link">
     Example
   </a>
@@ -952,6 +959,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#dependencies" title="Dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#example" title="Example" class="md-nav__link">
     Example
   </a>
@@ -1000,6 +1014,22 @@
 <p class="admonition-title">minimum plugin requirement</p>
 <p>This step requires <a href="https://github.com/jenkinsci/synopsys-detect-plugin">synopsys-detect-plugin</a> with at least version <code>2.0.0</code>.</p>
 </div>
+<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
+<p>The step depends on the following Jenkins plugins</p>
+<ul>
+<li><a href="https://plugins.jenkins.io/credentials-binding">credentials-binding</a></li>
+<li><a href="https://plugins.jenkins.io/docker">docker</a></li>
+<li><a href="https://plugins.jenkins.io/kubernetes">kubernetes</a></li>
+<li><a href="https://plugins.jenkins.io/pipeline-utility-steps">pipeline-utility-steps</a></li>
+<li><a href="https://plugins.jenkins.io/workflow-basic-steps">workflow-basic-steps</a></li>
+<li><a href="https://plugins.jenkins.io/workflow-cps-global-lib">workflow-cps-global-lib</a></li>
+<li><a href="https://plugins.jenkins.io/workflow-durable-task-step">workflow-durable-task-step</a></li>
+</ul>
+<p>The kubernetes plugin is only used if running in a kubernetes environment.
+Transitive dependencies are omitted.</p>
+<p>The list might be incomplete.</p>
+<p>Consider using the <a href="https://cloud.docker.com/u/ppiper/repository/docker/ppiper/jenkins-master">ppiper/jenkins-master</a>
+docker image. This images comes with preinstalled plugins.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="n">detectExecuteScan</span> <span class="nl">script:</span> <span class="k">this</span><span class="o">,</span> <span class="nl">scanProperties:</span> <span class="o">[</span><span class="s1">&#39;--logging.level.com.synopsys.integration=TRACE&#39;</span><span class="o">]</span>
 </pre></div>

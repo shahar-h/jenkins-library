@@ -459,15 +459,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#description" title="Description" class="md-nav__link">
-    Description
+  <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
+    Prerequisites
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
-    Prerequisites
+  <a href="#dependencies" title="Dependencies" class="md-nav__link">
+    Dependencies
   </a>
   
 </li>
@@ -482,6 +482,13 @@
         <li class="md-nav__item">
   <a href="#step-configuration" title="Step configuration" class="md-nav__link">
     Step configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#description" title="Description" class="md-nav__link">
+    Description
   </a>
   
 </li>
@@ -938,15 +945,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#description" title="Description" class="md-nav__link">
-    Description
+  <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
+    Prerequisites
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
-    Prerequisites
+  <a href="#dependencies" title="Dependencies" class="md-nav__link">
+    Dependencies
   </a>
   
 </li>
@@ -961,6 +968,13 @@
         <li class="md-nav__item">
   <a href="#step-configuration" title="Step configuration" class="md-nav__link">
     Step configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#description" title="Description" class="md-nav__link">
+    Description
   </a>
   
 </li>
@@ -992,19 +1006,22 @@
                 
                 
                 <h1 id="githubpublishrelease">githubPublishRelease<a class="headerlink" href="#githubpublishrelease" title="Permanent link">&para;</a></h1>
-<h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h2>
-<p>This step creates a tag in your GitHub repository together with a release.</p>
-<p>The release can be filled with text plus additional information like:</p>
-<ul>
-<li>Closed pull request since last release</li>
-<li>Closed issues since last release</li>
-<li>link to delta information showing all commits since last release</li>
-</ul>
-<p>The result looks like</p>
-<p><img alt="Example release" src="../../images/githubRelease.png" /></p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <p>You need to create a personal access token within GitHub and add this to the Jenkins credentials store.</p>
 <p>Please see <a href="https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/">GitHub documentation for details about creating the personal access token</a>.</p>
+<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
+<p>The step depends on the following Jenkins plugins</p>
+<ul>
+<li><a href="https://plugins.jenkins.io/credentials-binding">credentials-binding</a></li>
+<li><a href="https://plugins.jenkins.io/http_request">http_request</a></li>
+<li><a href="https://plugins.jenkins.io/pipeline-utility-steps">pipeline-utility-steps</a></li>
+<li><a href="https://plugins.jenkins.io/workflow-basic-steps">workflow-basic-steps</a></li>
+<li><a href="https://plugins.jenkins.io/workflow-cps-global-lib">workflow-cps-global-lib</a></li>
+</ul>
+<p>Transitive dependencies are omitted.</p>
+<p>The list might be incomplete.</p>
+<p>Consider using the <a href="https://cloud.docker.com/u/ppiper/repository/docker/ppiper/jenkins-master">ppiper/jenkins-master</a>
+docker image. This images comes with preinstalled plugins.</p>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1178,6 +1195,16 @@
 </tr>
 </tbody>
 </table>
+<h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h2>
+<p>This step creates a tag in your GitHub repository together with a release.</p>
+<p>The release can be filled with text plus additional information like:</p>
+<ul>
+<li>Closed pull request since last release</li>
+<li>Closed issues since last release</li>
+<li>link to delta information showing all commits since last release</li>
+</ul>
+<p>The result looks like</p>
+<p><img alt="Example release" src="../../images/githubRelease.png" /></p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
 <p>Usage of pipeline step:</p>
 <div class="codehilite"><pre><span></span><span class="n">githubPublishRelease</span> <span class="nl">script:</span> <span class="k">this</span><span class="o">,</span> <span class="nl">releaseBodyHeader:</span> <span class="s2">&quot;**This is the latest success!**&lt;br /&gt;&quot;</span>
