@@ -1073,6 +1073,12 @@
 <td></td>
 </tr>
 <tr>
+<td><code>extensions</code></td>
+<td>no</td>
+<td><code>[]</code></td>
+<td></td>
+</tr>
+<tr>
 <td><code>neo/account</code></td>
 <td>for deployMode=warParams</td>
 <td></td>
@@ -1157,6 +1163,7 @@
 <li><code>dockerEnvVars</code> - Environment variables to set in the container, e.g. [http_proxy: 'proxy:8080'].</li>
 <li><code>dockerImage</code> - Name of the docker image that should be used. If empty, Docker is not used and the command is executed directly on the Jenkins system.</li>
 <li><code>dockerOptions</code> - Docker options to be set when starting the container (List or String).</li>
+<li><code>extensions</code> - Extension files. Provided to the neo command via parameter <code>--extensions</code> (<code>-e</code>). Only valid for deploy mode <code>mta</code>.</li>
 <li><code>neo/account</code> - The SAP Cloud Platform account to deploy to.</li>
 <li><code>neo/application</code> - Name of the application you want to manage, configure, or deploy.</li>
 <li><code>neo/credentialsId</code> - The Jenkins credentials containing user and password used for SAP CP deployment.</li>
@@ -1200,6 +1207,11 @@
 </tr>
 <tr>
 <td><code>dockerOptions</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>extensions</code></td>
 <td></td>
 <td>X</td>
 </tr>
