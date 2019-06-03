@@ -86,7 +86,11 @@ import groovy.transform.Field
     /**
      * Expected status code returned by the check.
      */
-    'smokeTestStatusCode'
+    'smokeTestStatusCode',
+    /**
+     * Undeploy mta before mta deployment.
+     */
+    'undeployMtaFirst'
 ]
 
 @Field Map CONFIG_KEY_COMPATIBILITY = [cloudFoundry: [apiEndpoint: 'cfApiEndpoint', appName:'cfAppName', credentialsId: 'cfCredentialsId', manifest: 'cfManifest', org: 'cfOrg', space: 'cfSpace']]
@@ -319,18 +323,39 @@ def deployMta (config) {
         usernameVariable: 'username'
     )]) {
         echo "[${STEP_NAME}] Deploying MTA (${config.mtaPath}) with following parameters: ${config.mtaExtensionDescriptor} ${config.mtaDeployParameters}"
-        def returnCode = sh returnStatus: true, script: """#!/bin/bash
+        sh """#!/bin/bash
             export HOME=${config.dockerWorkspace}
             set +x
             set -e
             cf api ${config.cloudFoundry.apiEndpoint}
-            cf login -u ${username} -p '${password}' -a ${config.cloudFoundry.apiEndpoint} -o \"${config.cloudFoundry.org}\" -s \"${config.cloudFoundry.space}\"
-            cf plugins
+            cf login -u ${username} -p '${password}' -a ${config.cloudFoundry.apiEndpoint} -o \"${
+            config.cloudFoundry.org
+        }\" -s \"${config.cloudFoundry.space}\"
+            cf plugins"""
+
+        if (config.undeployMtaFirst) {
+            def mtaId = (readYaml (file: 'mta.yaml')).ID
+            undeployMtaFirst(mtaId, config.dockerWorkspace)
+        }
+
+        returnCode = sh returnStatus: true, script: """#!/bin/bash
+            export HOME=${config.dockerWorkspace}
             cf ${deployCommand} ${config.mtaPath} ${config.mtaDeployParameters} ${config.mtaExtensionDescriptor}"""
-        if(returnCode != 0){
+        if (returnCode != 0) {
             error "[ERROR][${STEP_NAME}] The execution of the deploy command failed, see the log for details."
         }
         sh "cf logout"
+    }
+}
+
+def undeployMtaFirst(mtaId, dockerWorkspace){
+    def returnCode = sh returnStatus: true, script: """#!/bin/bash
+        export HOME=${dockerWorkspace}
+        cf mta ${mtaId}"""
+    if (returnCode == 0) {
+        sh """#!/bin/bash
+            export HOME=${dockerWorkspace}
+            cf undeploy ${mtaId} --delete-services -f"""
     }
 }
 
