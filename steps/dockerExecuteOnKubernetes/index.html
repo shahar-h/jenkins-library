@@ -1274,6 +1274,12 @@ Proxy environment variables defined on the Jenkins machine are also available in
 <td><code>[workspace:**/*]</code></td>
 <td></td>
 </tr>
+<tr>
+<td><code>verbose</code></td>
+<td>no</td>
+<td></td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
 </tbody>
 </table>
 <ul>
@@ -1296,7 +1302,8 @@ Proxy environment variables defined on the Jenkins machine are also available in
 <li><code>securityContext</code> - Kubernetes Security Context used for the pod. Can be used to specify uid and fsGroup. See: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/</li>
 <li><code>stashContent</code> - Specific stashes that should be considered for the step execution.</li>
 <li><code>stashExcludes</code> - </li>
-<li><code>stashIncludes</code> -</li>
+<li><code>stashIncludes</code> - </li>
+<li><code>verbose</code> - Print more detailed information into the log.</li>
 </ul>
 <h2 id="step-configuration">Step configuration<a class="headerlink" href="#step-configuration" title="Permanent link">&para;</a></h2>
 <p>We recommend to define values of step parameters via <a href="../../configuration/">config.yml file</a>.</p>
@@ -1408,6 +1415,11 @@ Proxy environment variables defined on the Jenkins machine are also available in
 <tr>
 <td><code>stashIncludes</code></td>
 <td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>verbose</code></td>
+<td>X</td>
 <td>X</td>
 </tr>
 </tbody>
