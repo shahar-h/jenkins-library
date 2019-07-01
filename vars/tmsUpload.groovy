@@ -1,3 +1,5 @@
+import com.sap.piper.integration.TransportManagementService
+
 import static com.sap.piper.Prerequisites.checkScript
 
 import com.sap.piper.GenerateDocumentation
@@ -48,44 +50,40 @@ void call(Map parameters = [:]) {
             .mixin(parameters, PARAMETER_KEYS)
             .use()
 
-        //TODO: Do I need this?
-//        new Utils().pushToSWA([
-//            step: STEP_NAME,
-//            stepParamKey1: 'scriptMissing',
-//            stepParam1: parameters?.script == null
-//        ], config)
-
         //TODO: how to make sure mandatory parameters are present?
+        def tms = new TransportManagementService(script, config)
 
         withCredentials([string(credentialsId: config.tmsServiceKeyId, variable: 'decryptedServiceKey')]) {
             def serviceKey = readJSON text: decryptedServiceKey
-            def token = retrieveOAuthToken(serviceKey.uaa.url, serviceKey.uaa.clientid, serviceKey.uaa.clientsecret)
-            def fileId = uploadDeployArchive(serviceKey.uri, token, config.deployArchive)
-            exportDeployArchive()
+            echo "XXXXXXXXXX: ${decryptedServiceKey}"
+            def token = tms.retrieveOAuthToken(serviceKey.uaa.url, serviceKey.uaa.clientid, serviceKey.uaa.clientsecret)
+
+//            def fileId = uploadDeployArchive(serviceKey.uri, token, config.deployArchive)
+//            exportDeployArchive()
 
         }
 
     }
 }
 
-def retrieveOAuthToken(baseUrl, clientId, clientSecret) {
-    echo "[${STEP_NAME}] Retrieving access token."
-
-    def url = "${baseUrl}/oauth/token/?grant_type=client_credentials&response_type=token"
-    def encodedClientIdSecret = "${clientId}:${clientSecret}".bytes.encodeBase64().toString()
-
-    def response = httpRequest httpMode: 'POST',
-        url: url,
-        customHeaders: [[maskValue: true, name: 'Authorization', value: "Basic ${encodedClientIdSecret}"]]
-
-    result = readJSON text: response.content
-    def token = result.access_token
-    if (!token) {
-        error "[${STEP_NAME}] Failed to extract OAuth token from Oauth Client reply. JSON key 'access_token' does not exist."
-    } else {
-        return token
-    }
-}
+//def retrieveOAuthToken(baseUrl, clientId, clientSecret) {
+//    echo "[${STEP_NAME}] Retrieving access token."
+//
+//    def url = "${baseUrl}/oauth/token/?grant_type=client_credentials&response_type=token"
+//    def encodedClientIdSecret = "${clientId}:${clientSecret}".bytes.encodeBase64().toString()
+//
+//    def response = httpRequest httpMode: 'POST',
+//        url: url,
+//        customHeaders: [[maskValue: true, name: 'Authorization', value: "Basic ${encodedClientIdSecret}"]]
+//
+//    result = readJSON text: response.content
+//    def token = result.access_token
+//    if (!token) {
+//        error "[${STEP_NAME}] Failed to extract OAuth token from Oauth Client reply. JSON key 'access_token' does not exist."
+//    } else {
+//        return token
+//    }
+//}
 
 def uploadDeployArchive(baseUrl, token, deployArchive) {
     echo "Upload '${deployArchive}' to Transport Service ..."
