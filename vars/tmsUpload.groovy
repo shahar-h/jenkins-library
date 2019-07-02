@@ -8,7 +8,9 @@ import groovy.transform.Field
 
 @Field def STEP_NAME = getClass().getName()
 
-@Field Set GENERAL_CONFIG_KEYS = []
+@Field Set GENERAL_CONFIG_KEYS = [
+    'verbose'
+]
 @Field Set STEP_CONFIG_KEYS = [
     /**
      * The archive file to be uploaded.
@@ -50,16 +52,17 @@ void call(Map parameters = [:]) {
             .mixin(parameters, PARAMETER_KEYS)
             .use()
 
-        //TODO: how to make sure mandatory parameters are present?
+        //TODO: make sure mandatory parameters are present
         def tms = new TransportManagementService(script, config)
 
         withCredentials([string(credentialsId: config.tmsServiceKeyId, variable: 'decryptedServiceKey')]) {
             def serviceKey = readJSON text: decryptedServiceKey
-            echo "XXXXXXXXXX: ${decryptedServiceKey}"
             def token = tms.retrieveOAuthToken(serviceKey.uaa.url, serviceKey.uaa.clientid, serviceKey.uaa.clientsecret)
 
-//            def fileId = uploadDeployArchive(serviceKey.uri, token, config.deployArchive)
-//            exportDeployArchive()
+            echo token
+
+//            def fileId = tms.uploadDeployArchive(serviceKey.uri, token, config.deployArchive)
+//            tms.exportDeployArchive(serviceKey.uri, token, fileId, config.nodeName, config.description)
 
         }
 
@@ -85,34 +88,34 @@ void call(Map parameters = [:]) {
 //    }
 //}
 
-def uploadDeployArchive(baseUrl, token, deployArchive) {
-    echo "Upload '${deployArchive}' to Transport Service ..."
+//def uploadDeployArchive(baseUrl, token, deployArchive) {
+//    echo "Upload '${deployArchive}' to Transport Service ..."
+//
+//    def uploadResult = sh(returnStdout: true,
+//                    script: """curl --silent --show-error --retry 12 -o response --write-out \"%{http_code}\" \
+//                                    -XPOST -H "Authorization: Bearer ${token}" \
+//                                    -F file=@\"${deployArchive}\" \"${baseUrl}/v1/files/upload\"""")
+//
+//    result = readJSON text: uploadResult
+//    def fileId = result.fileId
+//    if (!fileId) {
+//        error "[${STEP_NAME}] ERROR: MTA file upload failed. Details: '${uploadResult}'"
+//    } else {
+//        echo "Upload SUCCESS - file id: '${fileId}'"
+//        return fileId
+//    }
+//}
 
-    def uploadResult = sh(returnStdout: true,
-                    script: """curl --silent --show-error --retry 12 -o response --write-out \"%{http_code}\" \
-                                    -XPOST -H "Authorization: Bearer ${token}" \
-                                    -F file=@\"${deployArchive}\" \"${baseUrl}/v1/files/upload\"""")
-
-    result = readJSON text: uploadResult
-    def fileId = result.fileId
-    if (!fileId) {
-        error "[${STEP_NAME}] ERROR: MTA file upload failed. Details: '${uploadResult}'"
-    } else {
-        echo "Upload SUCCESS - file id: '${fileId}'"
-        return fileId
-    }
-}
-
-def exportDeployArchive(baseUrl, token, fileId, nodeName, description) {
-    echo "Export to node '${nodeName}' ..."
-
-    exportData = """{
-                        'description': '$description',
-                        'nodeName': '$nodeName',
-                        'entries': [{
-                            'content_type': 'MTA',
-                            'storage_type': 'FILE',
-                            'uri': '$fileId'
-                        }]
-                    }"""
-}
+//def exportDeployArchive(baseUrl, token, fileId, nodeName, description) {
+//    echo "Export to node '${nodeName}' ..."
+//
+//    exportData = """{
+//                        'description': '$description',
+//                        'nodeName': '$nodeName',
+//                        'entries': [{
+//                            'content_type': 'MTA',
+//                            'storage_type': 'FILE',
+//                            'uri': '$fileId'
+//                        }]
+//                    }"""
+//}

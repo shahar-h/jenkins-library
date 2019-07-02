@@ -1,5 +1,7 @@
 package com.sap.piper.integration
 
+import com.sap.piper.JsonUtils
+
 class TransportManagementService implements Serializable {
 
     final Script script
@@ -30,15 +32,57 @@ class TransportManagementService implements Serializable {
 //                    maskValue: false,
 //                    name     : 'Content-Type',
 //                    value    : 'application/x-www-form-urlencoded'
-//                ],
-            ],
+//                ]
+            ]
         ]
 
         def response = sendApiRequest(parameters)
 
         return parseJson(response).access_token
     }
-    
+
+    def uploadDeployArchive(baseUrl, token, deployArchive) {
+        this.script.echo "Upload '${deployArchive}' to Transport Management Service ..."
+
+        def uploadResult = sh(returnStdout: true,
+            script: """curl --silent --show-error --retry 12 -o response --write-out '%{http_code}'
+                            -XPOST -H "Authorization: Bearer ${token}"
+                            -F file=@'${deployArchive}' '${baseUrl}/v1/files/upload'""")
+
+        return parseJson(response).fileId
+    }
+
+    def exportDeployArchive(baseUrl, token, fileId, nodeName, description) {
+        this.script.echo "Export to node '${nodeName}' ..."
+
+        def exportData = JsonUtils.groovyObjectToPrettyJsonString(
+            description: description,
+            nodeName: nodeName,
+            entries: [
+                content_type: 'MTA',
+                storage_type: 'FILE',
+                uri         : fileId
+            ]
+        )
+
+        def parameters = [
+            url          : "${baseUrl}/nodes/upload",
+            httpMode     : "POST",
+            requestBody  : exportData,
+            customHeaders: [
+                [
+                    maskValue: true,
+                    name     : 'authorization',
+                    value    : "Bearer ${token}"
+                ]
+            ]
+        ]
+
+        def response = sendApiRequest(parameters)
+
+        return parseJson(response).trId
+    }
+
     private parseJson(text) {
         def parsedResponse = this.script.readJSON(text: text)
         if (this.config.verbose)
@@ -62,7 +106,7 @@ class TransportManagementService implements Serializable {
                 "'${response.content}' with status ${response.status}."
 
         if (response.status == 400) {
-            def message = "HTTP 400 - Bad request received as answer from Transport Management Service: " +
+            def message = "HTTP 400 - Bad request received as answer: " +
                 "${response.content}"
             this.script.error message
         }
