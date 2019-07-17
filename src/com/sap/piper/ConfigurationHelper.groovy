@@ -13,7 +13,6 @@ class ConfigurationHelper implements Serializable {
 
     ConfigurationHelper loadStepDefaults(Map compatibleParameters = [:]) {
         DefaultValueCache.prepare(step)
-        this.config = ConfigurationLoader.defaultGeneralConfiguration()
         mixin(ConfigurationLoader.defaultGeneralConfiguration(), null, compatibleParameters)
         mixin(ConfigurationLoader.defaultStepConfiguration(null, name), null, compatibleParameters)
     }

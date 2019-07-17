@@ -1,6 +1,7 @@
 package com.sap.piper
 
 import static org.hamcrest.Matchers.*
+import static org.junit.Assert.assertEquals
 import static org.junit.Assert.assertThat
 
 import org.junit.Assert
@@ -118,6 +119,54 @@ class ConfigurationHelperTest {
         Assert.assertThat(config, hasEntry('step', 'test'))
         Assert.assertThat(config, hasEntry('step2', 'test2'))
         Assert.assertThat(config, not(hasKey('property3')))
+    }
+
+    @Test
+    void testConfigurationHelperNotHavingSideEffects() {
+
+        Map defaultValues = [
+            general: [ deepDefaultConfigurationGeneral: [ keyA: 'original-value' ] ],
+            steps: [ mock: [ deepDefaultConfigurationStep: [keyA: 'original-value'] ] ]
+        ]
+
+        Map pipelineEnvironment = [
+            configuration: [
+                general: [ deepConfigurationGeneral: [ keyA: 'original-value' ] ],
+                stages: [testStage: [ deepConfigurationStage: [keyA: 'original-value'] ] ],
+                steps: [ mock: [ deepConfigurationStep: [keyA: 'original-value'] ] ]
+            ]
+        ]
+
+        Map parameters = [ deepConfigurationParameters: [ keyA: 'original-value' ] ]
+
+
+        DefaultValueCache.createInstance(defaultValues)
+
+        Map mergedConfig =  ConfigurationHelper.newInstance(mockScript)
+            .loadStepDefaults()
+            .mixinGeneralConfig(pipelineEnvironment, null)
+            .mixinStageConfig(pipelineEnvironment, 'testStage')
+            .mixinStepConfig(pipelineEnvironment, null)
+            .mixin(parameters, null)
+            .use()
+
+        mergedConfig.deepDefaultConfigurationGeneral.keyA = 'new-value'
+        mergedConfig.deepDefaultConfigurationStep.keyA = 'new-value'
+
+        mergedConfig.deepConfigurationGeneral.keyA = 'new-value'
+        mergedConfig.deepConfigurationStage.keyA = 'new-value'
+        mergedConfig.deepConfigurationStep.keyA = 'new-value'
+
+        mergedConfig.deepConfigurationParameters.keyA = 'new-value'
+
+        assertEquals('original-value', defaultValues.general.deepDefaultConfigurationGeneral.keyA)
+        assertEquals('original-value', defaultValues.steps.mock.deepDefaultConfigurationStep.keyA)
+
+        assertEquals('original-value', pipelineEnvironment.configuration.general.deepConfigurationGeneral.keyA)
+        assertEquals('original-value', pipelineEnvironment.configuration.stages.testStage.deepConfigurationStage.keyA)
+        assertEquals('original-value', pipelineEnvironment.configuration.steps.mock.deepConfigurationStep.keyA)
+
+        assertEquals('original-value', parameters.deepConfigurationParameters.keyA)
     }
 
     @Test
