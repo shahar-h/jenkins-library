@@ -797,6 +797,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../piperPublishWarnings/" title="piperPublishWarnings" class="md-nav__link">
+      piperPublishWarnings
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../prepareDefaultValues/" title="prepareDefaultValues" class="md-nav__link">
       prepareDefaultValues
     </a>
@@ -1051,8 +1063,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../stages/build/" title="Central Build Stage" class="md-nav__link">
-      Central Build Stage
+    <a href="../../stages/build/" title="Build Stage" class="md-nav__link">
+      Build Stage
     </a>
   </li>
 
@@ -1389,6 +1401,13 @@
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h2>
 <p>Executes a closure inside a container in a kubernetes pod.
 Proxy environment variables defined on the Jenkins machine are also available in the container.</p>
+<p>By default jnlp agent defined for kubernetes-plugin will be used (see https://github.com/jenkinsci/kubernetes-plugin#pipeline-support).</p>
+<p>It is possible to define a custom jnlp agent image by</p>
+<ol>
+<li>Defining the jnlp image via environment variable JENKINS_JNLP_IMAGE in the Kubernetes landscape</li>
+<li>Defining the image via config (<code>jenkinsKubernetes.jnlpAgent</code>)</li>
+</ol>
+<p>Option 1 will take precedence over option 2.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
 <li>The Jenkins should be running on kubernetes.</li>
@@ -1487,7 +1506,7 @@ Proxy environment variables defined on the Jenkins machine are also available in
 <tr>
 <td><code>jenkinsKubernetes</code></td>
 <td>no</td>
-<td><code>[jnlpAgent:s4sdk/jenkins-agent-k8s:latest]</code></td>
+<td><code>[:]</code></td>
 <td></td>
 </tr>
 <tr>

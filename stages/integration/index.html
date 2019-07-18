@@ -100,7 +100,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="../../#docgenstagename" tabindex="1" class="md-skip">
+      <a href="../../#integration" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -694,6 +694,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../steps/piperPublishWarnings/" title="piperPublishWarnings" class="md-nav__link">
+      piperPublishWarnings
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../steps/prepareDefaultValues/" title="prepareDefaultValues" class="md-nav__link">
       prepareDefaultValues
     </a>
@@ -954,8 +966,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../build/" title="Central Build Stage" class="md-nav__link">
-      Central Build Stage
+    <a href="../build/" title="Build Stage" class="md-nav__link">
+      Build Stage
     </a>
   </li>
 
@@ -1005,36 +1017,36 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#docgenstagecontent" title="${docGenStageContent}" class="md-nav__link">
-    ${docGenStageContent}
+  <a href="#stage-content" title="Stage Content" class="md-nav__link">
+    Stage Content
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#docgenstageactivation" title="${docGenStageActivation}" class="md-nav__link">
-    ${docGenStageActivation}
+  <a href="#stage-activation" title="Stage Activation" class="md-nav__link">
+    Stage Activation
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#docgenstepactivation" title="${docGenStepActivation}" class="md-nav__link">
-    ${docGenStepActivation}
+  <a href="#step-activation" title="Step Activation" class="md-nav__link">
+    Step Activation
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#docgenstageparameters" title="${docGenStageParameters}" class="md-nav__link">
-    ${docGenStageParameters}
+  <a href="#additional-stage-parameters" title="Additional Stage Parameters" class="md-nav__link">
+    Additional Stage Parameters
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#docgenstageconfiguration" title="${docGenStageConfiguration}" class="md-nav__link">
-    ${docGenStageConfiguration}
+  <a href="#configuration-of-additional-stage-parameters" title="Configuration of Additional Stage Parameters" class="md-nav__link">
+    Configuration of Additional Stage Parameters
   </a>
   
 </li>
@@ -1266,36 +1278,36 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#docgenstagecontent" title="${docGenStageContent}" class="md-nav__link">
-    ${docGenStageContent}
+  <a href="#stage-content" title="Stage Content" class="md-nav__link">
+    Stage Content
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#docgenstageactivation" title="${docGenStageActivation}" class="md-nav__link">
-    ${docGenStageActivation}
+  <a href="#stage-activation" title="Stage Activation" class="md-nav__link">
+    Stage Activation
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#docgenstepactivation" title="${docGenStepActivation}" class="md-nav__link">
-    ${docGenStepActivation}
+  <a href="#step-activation" title="Step Activation" class="md-nav__link">
+    Step Activation
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#docgenstageparameters" title="${docGenStageParameters}" class="md-nav__link">
-    ${docGenStageParameters}
+  <a href="#additional-stage-parameters" title="Additional Stage Parameters" class="md-nav__link">
+    Additional Stage Parameters
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#docgenstageconfiguration" title="${docGenStageConfiguration}" class="md-nav__link">
-    ${docGenStageConfiguration}
+  <a href="#configuration-of-additional-stage-parameters" title="Configuration of Additional Stage Parameters" class="md-nav__link">
+    Configuration of Additional Stage Parameters
   </a>
   
 </li>
@@ -1319,13 +1331,57 @@
                   <a href="https://github.com/SAP/jenkins-library/edit/master/documentation/docs/stages/integration.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="docgenstagename">${docGenStageName}<a class="headerlink" href="#docgenstagename" title="Permanent link">&para;</a></h1>
-<p>${docGenDescription}</p>
-<h2 id="docgenstagecontent">${docGenStageContent}<a class="headerlink" href="#docgenstagecontent" title="Permanent link">&para;</a></h2>
-<h2 id="docgenstageactivation">${docGenStageActivation}<a class="headerlink" href="#docgenstageactivation" title="Permanent link">&para;</a></h2>
-<h2 id="docgenstepactivation">${docGenStepActivation}<a class="headerlink" href="#docgenstepactivation" title="Permanent link">&para;</a></h2>
-<h2 id="docgenstageparameters">${docGenStageParameters}<a class="headerlink" href="#docgenstageparameters" title="Permanent link">&para;</a></h2>
-<h2 id="docgenstageconfiguration">${docGenStageConfiguration}<a class="headerlink" href="#docgenstageconfiguration" title="Permanent link">&para;</a></h2>
+                <h1 id="integration">Integration<a class="headerlink" href="#integration" title="Permanent link">&para;</a></h1>
+<p>The stage allows to execute project-specific integration tests.<br />
+Typically, integration tests are very project-specific, thus they can be defined here using the <a href="../../extensibility/">stage extension mechanism</a>.</p>
+<h2 id="stage-content">Stage Content<a class="headerlink" href="#stage-content" title="Permanent link">&para;</a></h2>
+<p>This stage comprises following steps which are activated depending on your use-case/configuration:</p>
+<table>
+<thead>
+<tr>
+<th>step</th>
+<th>step description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="stage-activation">Stage Activation<a class="headerlink" href="#stage-activation" title="Permanent link">&para;</a></h2>
+<p>This stage will be active if any one of the following conditions is met:</p>
+<ul>
+<li>Stage configuration in <a href="../../configuration/">config.yml file</a> contains entries for this stage.</li>
+<li>Any of the conditions are met which are explained in the section <a href="#step-activation">Step Activation</a>.</li>
+</ul>
+<h2 id="step-activation">Step Activation<a class="headerlink" href="#step-activation" title="Permanent link">&para;</a></h2>
+<p>For this stage no conditions are assigned to steps.</p>
+<h2 id="additional-stage-parameters">Additional Stage Parameters<a class="headerlink" href="#additional-stage-parameters" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>mandatory</th>
+<th>default</th>
+<th>possible values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>script</code></td>
+<td>yes</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
+</ul>
+<h2 id="configuration-of-additional-stage-parameters">Configuration of Additional Stage Parameters<a class="headerlink" href="#configuration-of-additional-stage-parameters" title="Permanent link">&para;</a></h2>
+<p>The stage parameters need to be defined in the section <code>stages</code> of <a href="../../configuration/">config.yml file</a>.</p>
                 
                   
                 
