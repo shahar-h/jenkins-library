@@ -1418,7 +1418,7 @@ access protection imposed on the WhiteSource backend would simply allow access b
 <tr>
 <td><code>buildDescriptorFile</code></td>
 <td>no</td>
-<td>scanType=<code>golang</code>:<code>./Gopkg.toml</code><br />scanType=<code>maven</code>:<code>./pom.xml</code><br />scanType=<code>mta</code>:<code>&lt;empty&gt;</code><br />scanType=<code>npm</code>:<code>./package.json</code><br />scanType=<code>pip</code>:<code>./setup.py</code><br />scanType=<code>sbt</code>:<code>./build.sbt</code></td>
+<td>scanType=<code>golang</code>:<code>./Gopkg.toml</code><br />scanType=<code>maven</code>:<code>./pom.xml</code><br />scanType=<code>mta</code>:<code>&lt;empty&gt;</code><br />scanType=<code>npm</code>:<code>./package.json</code><br />scanType=<code>pip</code>:<code>./setup.py</code><br />scanType=<code>sbt</code>:<code>./build.sbt</code><br />scanType=<code>dub</code>:<code>./dub.json</code></td>
 <td></td>
 </tr>
 <tr>
@@ -1442,13 +1442,13 @@ access protection imposed on the WhiteSource backend would simply allow access b
 <tr>
 <td><code>dockerImage</code></td>
 <td>no</td>
-<td>scanType=<code>golang</code>:<code>golang:1.12-stretch</code><br />scanType=<code>maven</code>:<code>maven:3.5-jdk-8</code><br />scanType=<code>mta</code>:<code>&lt;empty&gt;</code><br />scanType=<code>npm</code>:<code>node:8-stretch</code><br />scanType=<code>pip</code>:<code>python:3.7.2-stretch</code><br />scanType=<code>sbt</code>:<code>hseeberger/scala-sbt:8u181_2.12.8_1.2.8</code></td>
+<td>scanType=<code>golang</code>:<code>golang:1.12-stretch</code><br />scanType=<code>maven</code>:<code>maven:3.5-jdk-8</code><br />scanType=<code>mta</code>:<code>&lt;empty&gt;</code><br />scanType=<code>npm</code>:<code>node:8-stretch</code><br />scanType=<code>pip</code>:<code>python:3.7.2-stretch</code><br />scanType=<code>sbt</code>:<code>hseeberger/scala-sbt:8u181_2.12.8_1.2.8</code><br />scanType=<code>dub</code>:<code>buildpack-deps:stretch-curl</code></td>
 <td></td>
 </tr>
 <tr>
 <td><code>dockerWorkspace</code></td>
 <td>no</td>
-<td>scanType=<code>golang</code>:<code>/home/dep</code><br />scanType=<code>maven</code>:<code>/home/java</code><br />scanType=<code>mta</code>:<code>&lt;empty&gt;</code><br />scanType=<code>npm</code>:<code>/home/node</code><br />scanType=<code>pip</code>:<code>/home/python</code><br />scanType=<code>sbt</code>:<code>/home/scala</code></td>
+<td>scanType=<code>golang</code>:<code>/home/dep</code><br />scanType=<code>maven</code>:<code>/home/java</code><br />scanType=<code>mta</code>:<code>&lt;empty&gt;</code><br />scanType=<code>npm</code>:<code>/home/node</code><br />scanType=<code>pip</code>:<code>/home/python</code><br />scanType=<code>sbt</code>:<code>/home/scala</code><br />scanType=<code>dub</code>:<code>/home/dub</code></td>
 <td></td>
 </tr>
 <tr>
@@ -1485,7 +1485,7 @@ access protection imposed on the WhiteSource backend would simply allow access b
 <td><code>scanType</code></td>
 <td>no</td>
 <td></td>
-<td><code>golang</code>, <code>maven</code>, <code>mta</code>, <code>npm</code>, <code>pip</code>, <code>sbt</code></td>
+<td><code>golang</code>, <code>maven</code>, <code>mta</code>, <code>npm</code>, <code>pip</code>, <code>sbt</code>, <code>dub</code></td>
 </tr>
 <tr>
 <td><code>script</code></td>
@@ -1502,7 +1502,7 @@ access protection imposed on the WhiteSource backend would simply allow access b
 <tr>
 <td><code>stashContent</code></td>
 <td>no</td>
-<td>scanType=<code>golang</code>:<code>[buildDescriptor, opensourceConfiguration, checkmarx]</code><br />scanType=<code>maven</code>:<code>[buildDescriptor, opensourceConfiguration]</code><br />scanType=<code>mta</code>:<code>[buildDescriptor, opensourceConfiguration]</code><br />scanType=<code>npm</code>:<code>[buildDescriptor, opensourceConfiguration]</code><br />scanType=<code>pip</code>:<code>[buildDescriptor, opensourceConfiguration]</code><br />scanType=<code>sbt</code>:<code>[buildDescriptor, opensourceConfiguration]</code></td>
+<td>scanType=<code>golang</code>:<code>[buildDescriptor, opensourceConfiguration, checkmarx]</code><br />scanType=<code>maven</code>:<code>[buildDescriptor, opensourceConfiguration]</code><br />scanType=<code>mta</code>:<code>[buildDescriptor, opensourceConfiguration]</code><br />scanType=<code>npm</code>:<code>[buildDescriptor, opensourceConfiguration]</code><br />scanType=<code>pip</code>:<code>[buildDescriptor, opensourceConfiguration]</code><br />scanType=<code>sbt</code>:<code>[buildDescriptor, opensourceConfiguration]</code><br />scanType=<code>dub</code>:<code>[buildDescriptor, checkmarx]</code></td>
 <td></td>
 </tr>
 <tr>
