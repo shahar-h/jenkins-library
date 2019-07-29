@@ -126,6 +126,16 @@ def publishCoberturaReport(Map settings = [:]) {
             autoUpdateStability: false,
             maxNumberOfBuilds: 0
         )
+
+        publishCoverage(
+            adapters: [
+                coberturaAdapter(path: pattern),
+                istanbulCoberturaAdapter(path: pattern)
+            ],
+            calculateDiffForChangeRequests: true,
+            sourceFileResolver: sourceFiles('NEVER_STORE')
+        )
+
         archiveResults(settings.get('archive'), pattern, allowEmpty)
     }
 }
