@@ -115,7 +115,7 @@ def publishCoberturaReport(Map settings = [:]) {
     if(settings.active){
         def pattern = settings.get('pattern')
         def allowEmpty = settings.get('allowEmptyResults')
-
+/*
         cobertura(
             coberturaReportFile: pattern,
             onlyStable: settings.get('onlyStableBuilds'),
@@ -126,14 +126,14 @@ def publishCoberturaReport(Map settings = [:]) {
             autoUpdateStability: false,
             maxNumberOfBuilds: 0
         )
-
+*/
         publishCoverage(
             adapters: [
                 coberturaAdapter(path: pattern),
                 istanbulCoberturaAdapter(path: pattern)
             ],
             calculateDiffForChangeRequests: true,
-            sourceFileResolver: sourceFiles('NEVER_STORE')
+            sourceFileResolver: sourceFiles('STORE_LAST_BUILD')
         )
 
         archiveResults(settings.get('archive'), pattern, allowEmpty)
