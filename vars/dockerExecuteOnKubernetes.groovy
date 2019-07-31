@@ -284,6 +284,7 @@ private List getContainerList(config) {
     }
     config.containerMap.each { imageName, containerName ->
         def containerPullImage = config.containerPullImageFlags?.get(imageName)
+        echo "Container Name is ${containerName}"
         def containerSpec = [
             name: containerName.toLowerCase(),
             image: imageName,
