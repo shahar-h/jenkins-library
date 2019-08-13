@@ -132,7 +132,7 @@ void call(Map parameters = [:], body) {
             stepParam2: isKubernetes()
         ], config)
 
-        if (isKubernetes() && config.dockerImage) {
+        if (isKubernetes() && config.dockerImage && !config.sidecarImage) {
             if (env.POD_NAME && isContainerDefined(config)) {
                 container(getContainerDefined(config)) {
                     echo "[INFO][${STEP_NAME}] Executing inside a Kubernetes Container."
