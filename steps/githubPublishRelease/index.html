@@ -1465,7 +1465,7 @@ docker image. This images comes with preinstalled plugins.</p>
 <li><code>githubRepo</code> - Allows to overwrite the GitHub repository.</li>
 <li><code>githubServerUrl</code> - Allows to overwrite the GitHub url.</li>
 <li><code>githubTokenCredentialsId</code> - Allows to overwrite the GitHub token credentials id.</li>
-<li><code>releaseBodyHeader</code> - Allows to specify the content which will appear for the release.</li>
+<li><code>releaseBodyHeader</code> - Allows to specify the content which will appear for the release. It is possible to define it as Groovy template as well in order to bring in dynamic information. Following information can be used: everything contained in <code>config</code> as well as information from <code>commonPipelineEnvironment</code>.</li>
 <li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
 <li><code>version</code> - Defines the version number which will be written as tag as well as release name.</li>
 </ul>
