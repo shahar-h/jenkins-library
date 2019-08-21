@@ -237,13 +237,7 @@ private String generatePodSpec(Map config) {
 private String stashWorkspace(config, prefix, boolean chown = false) {
     def stashName = "${prefix}-${config.uniqueId}"
     try {
-        if (chown)  {
-            def securityContext = getSecurityContext(config)
-            def runAsUser = securityContext?.runAsUser ?: 1000
-            def fsGroup = securityContext?.fsGroup ?: 1000
-            sh """#!${config.containerShell?:'/bin/sh'}
-chown -R ${runAsUser}:${fsGroup} ."""
-        }
+        //This is a workaround. Should not be merged to master
         sh "chown -R 1000:1000 ."
         stash(
             name: stashName,
