@@ -3,7 +3,7 @@ import com.sap.piper.ConfigurationHelper
 import com.sap.piper.GenerateDocumentation
 import com.sap.piper.JenkinsUtils
 import com.sap.piper.Utils
-import com.sap.piper.Utils.waitForSidecarReady
+import static com.sap.piper.Utils.waitForSidecarReady
 import com.sap.piper.k8s.ContainerMap
 import groovy.transform.Field
 
