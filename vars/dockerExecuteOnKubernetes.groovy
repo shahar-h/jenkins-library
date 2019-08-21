@@ -244,6 +244,7 @@ private String stashWorkspace(config, prefix, boolean chown = false) {
             sh """#!${config.containerShell?:'/bin/sh'}
 chown -R ${runAsUser}:${fsGroup} ."""
         }
+        sh "chown -R 1000:1000 ."
         stash(
             name: stashName,
             includes: config.stashIncludes.workspace,
