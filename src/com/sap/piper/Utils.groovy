@@ -123,3 +123,20 @@ static String downloadSettingsFromUrl(script, String url, String targetFile = 's
     script.writeFile(file: targetFile, text: settings.getContent())
     return targetFile
 }
+
+static void waitForSidecarReady(script, String command){
+    int sleepTimeInSeconds = 10
+    int timeoutInSeconds = 5 * 60
+    int maxRetries = timeoutInSeconds / sleepTimeInSeconds
+    int retries = 0
+    while(true){
+        echo "Waiting for sidecar container"
+        String status = script.sh script:command, returnStatus:true
+        if(status == "0") return
+        if(retries > maxRetries){
+            script.error("Timeout while waiting for sidecar container to be ready")
+        }
+        script.sleep sleepTimeInSeconds
+        retries++
+    }
+}
