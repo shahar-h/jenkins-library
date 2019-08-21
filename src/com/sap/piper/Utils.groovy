@@ -130,7 +130,7 @@ static void waitForSidecarReady(script, String command){
     int maxRetries = timeoutInSeconds / sleepTimeInSeconds
     int retries = 0
     while(true){
-        echo "Waiting for sidecar container"
+        script.echo "Waiting for sidecar container"
         String status = script.sh script:command, returnStatus:true
         if(status == "0") return
         if(retries > maxRetries){
