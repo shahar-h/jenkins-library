@@ -39,7 +39,7 @@ class Telemetry implements Serializable{
                 listener(steps, payload)
             } catch (ignore) {
                 // some error occured in telemetry reporting. This should not break anything though.
-                steps.echo e.getLocalizedMessage()
+                steps.echo ignore.getLocalizedMessage()
                 steps.echo "[${payload.step}] Telemetry Report with listener failed: ${ignore.getMessage()}"
             }
         }
