@@ -1564,6 +1564,54 @@ Proxy environment variables defined on the Jenkins machine are also available in
 <td></td>
 </tr>
 <tr>
+<td><code>sidecarEnvVars</code></td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>sidecarImage</code></td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>sidecarName</code></td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>sidecarOptions</code></td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>sidecarPullImage</code></td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>sidecarReadyCommand</code></td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>sidecarVolumeBind</code></td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>sidecarWorkspace</code></td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
 <td><code>stashContent</code></td>
 <td>no</td>
 <td><code>[]</code></td>
@@ -1607,6 +1655,14 @@ Proxy environment variables defined on the Jenkins machine are also available in
 <li><code>nodeSelector</code> - Defines the Kubernetes nodeSelector as per <a href="https://github.com/jenkinsci/kubernetes-plugin">https://github.com/jenkinsci/kubernetes-plugin</a>.</li>
 <li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
 <li><code>securityContext</code> - Kubernetes Security Context used for the pod. Can be used to specify uid and fsGroup. See: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/</li>
+<li><code>sidecarEnvVars</code> - as <code>dockerEnvVars</code> for the sidecar container</li>
+<li><code>sidecarImage</code> - as <code>dockerImage</code> for the sidecar container</li>
+<li><code>sidecarName</code> - SideCar only: Name of the container in local network.</li>
+<li><code>sidecarOptions</code> - as <code>dockerOptions</code> for the sidecar container</li>
+<li><code>sidecarPullImage</code> - Set this to 'false' to bypass a docker image pull. Usefull during development process. Allows testing of images which are available in the local registry only.</li>
+<li><code>sidecarReadyCommand</code> - Command executed inside the container which returns exit code 0 when the container is ready to be used.</li>
+<li><code>sidecarVolumeBind</code> - as <code>dockerVolumeBind</code> for the sidecar container</li>
+<li><code>sidecarWorkspace</code> - as <code>dockerWorkspace</code> for the sidecar container</li>
 <li><code>stashContent</code> - Specific stashes that should be considered for the step execution.</li>
 <li><code>stashExcludes</code> - In the Kubernetes case the workspace is only available to the respective Jenkins slave but not to the containers running inside the pod.<br /> This configuration defines exclude pattern for stashing from Jenkins workspace to working directory in container and back. Following excludes can be set:  * <code>workspace</code>: Pattern for stashing towards container * <code>stashBack</code>: Pattern for bringing data from container back to Jenkins workspace. If not set: defaults to setting for <code>workspace</code>.</li>
 <li><code>stashIncludes</code> - In the Kubernetes case the workspace is only available to the respective Jenkins slave but not to the containers running inside the pod.<br /> This configuration defines include pattern for stashing from Jenkins workspace to working directory in container and back. Following includes can be set:  * <code>workspace</code>: Pattern for stashing towards container * <code>stashBack</code>: Pattern for bringing data from container back to Jenkins workspace. If not set: defaults to setting for <code>workspace</code>.</li>
@@ -1706,6 +1762,46 @@ Proxy environment variables defined on the Jenkins machine are also available in
 </tr>
 <tr>
 <td><code>securityContext</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>sidecarEnvVars</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>sidecarImage</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>sidecarName</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>sidecarOptions</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>sidecarPullImage</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>sidecarReadyCommand</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>sidecarVolumeBind</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>sidecarWorkspace</code></td>
 <td></td>
 <td>X</td>
 </tr>
