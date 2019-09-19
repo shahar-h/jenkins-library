@@ -36,7 +36,7 @@
     
     
       
-        <title>Guided Tour - Jenkins 2.0 Pipelines</title>
+        <title>Guided Tour - Project "Piper": Continuous Delivery for the SAP Ecosystem</title>
       
     
     
@@ -109,7 +109,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href=".." title="Jenkins 2.0 Pipelines" class="md-header-nav__button md-logo">
+        <a href=".." title="Project "Piper": Continuous Delivery for the SAP Ecosystem" class="md-header-nav__button md-logo">
           
             <img src="../images/piper_head_white.png" width="24" height="24">
           
@@ -123,7 +123,7 @@
           
             
               <span class="md-header-nav__topic">
-                Jenkins 2.0 Pipelines
+                Project "Piper": Continuous Delivery for the SAP Ecosystem
               </span>
               <span class="md-header-nav__topic">
                 Guided Tour
@@ -205,12 +205,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href=".." title="Jenkins 2.0 Pipelines" class="md-nav__button md-logo">
+    <a href=".." title="Project "Piper": Continuous Delivery for the SAP Ecosystem" class="md-nav__button md-logo">
       
         <img src="../images/piper_head_white.png" width="48" height="48">
       
     </a>
-    Jenkins 2.0 Pipelines
+    Project "Piper": Continuous Delivery for the SAP Ecosystem
   </label>
   
     <div class="md-nav__source">
@@ -289,9 +289,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#optional-install-the-cx-server-toolkit-for-jenkins" title="(Optional) Install the cx-server Toolkit for Jenkins" class="md-nav__link">
-    (Optional) Install the cx-server Toolkit for Jenkins
+  <a href="#recommended-install-the-cx-server-life-cycle-management-for-jenkins" title="Recommended: Install the Cx Server Life-cycle Management for Jenkins" class="md-nav__link">
+    Recommended: Install the Cx Server Life-cycle Management for Jenkins
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-your-own-custom-jenkins-setup" title="On your own: Custom Jenkins Setup" class="md-nav__link">
+    On your own: Custom Jenkins Setup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -365,6 +378,330 @@
       
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Pipelines
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Pipelines
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      General purpose pipeline
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        General purpose pipeline
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../stages/introduction/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../stages/examples/" title="Examples" class="md-nav__link">
+      Examples
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1-3" type="checkbox" id="nav-4-1-3">
+    
+    <label class="md-nav__link" for="nav-4-1-3">
+      Stages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-1-3">
+        Stages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../stages/init/" title="Init Stage" class="md-nav__link">
+      Init Stage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../stages/prvoting/" title="Pull-Request Voting Stage" class="md-nav__link">
+      Pull-Request Voting Stage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../stages/build/" title="Build Stage" class="md-nav__link">
+      Build Stage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../stages/additionalunittests/" title="Additional Unit Test Stage" class="md-nav__link">
+      Additional Unit Test Stage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../stages/integration/" title="Integration Stage" class="md-nav__link">
+      Integration Stage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../stages/acceptance/" title="Acceptance Stage" class="md-nav__link">
+      Acceptance Stage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../stages/security/" title="Security Stage" class="md-nav__link">
+      Security Stage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../stages/performance/" title="Performance Stage" class="md-nav__link">
+      Performance Stage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../stages/compliance/" title="Compliance" class="md-nav__link">
+      Compliance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../stages/confirm/" title="Confirm Stage" class="md-nav__link">
+      Confirm Stage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../stages/promote/" title="Promote Stage" class="md-nav__link">
+      Promote Stage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../stages/release/" title="Release Stage" class="md-nav__link">
+      Release Stage
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pipelines/cloud-sdk/introduction/" title="SAP Cloud SDK pipeline" class="md-nav__link">
+      SAP Cloud SDK pipeline
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Scenarios
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Scenarios
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scenarios/changeManagement/" title="Build and Deploy Hybrid Applications with Jenkins and SAP Solution Manager" class="md-nav__link">
+      Build and Deploy Hybrid Applications with Jenkins and SAP Solution Manager
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scenarios/ui5-sap-cp/Readme/" title="Build and Deploy SAP UI5 or SAP Fiori Applications on SAP Cloud Platform with Jenkins" class="md-nav__link">
+      Build and Deploy SAP UI5 or SAP Fiori Applications on SAP Cloud Platform with Jenkins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scenarios/CAP_Scenario/" title="Build and Deploy Applications with Jenkins and the SAP Cloud Application Programming Model" class="md-nav__link">
+      Build and Deploy Applications with Jenkins and the SAP Cloud Application Programming Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scenarios/TMS_Extension/" title="Integrate SAP Cloud Platform Transport Management Into Your CI/CD Pipeline" class="md-nav__link">
+      Integrate SAP Cloud Platform Transport Management Into Your CI/CD Pipeline
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
   <li class="md-nav__item">
     <a href="../extensibility/" title="Extensibility" class="md-nav__link">
       Extensibility
@@ -379,13 +716,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
-    <label class="md-nav__link" for="nav-5">
+    <label class="md-nav__link" for="nav-7">
       Library steps
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+      <label class="md-nav__title" for="nav-7">
         Library steps
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -979,318 +1316,6 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
-    
-    <label class="md-nav__link" for="nav-6">
-      Pipelines
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
-        Pipelines
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1" type="checkbox" id="nav-6-1">
-    
-    <label class="md-nav__link" for="nav-6-1">
-      General purpose pipeline
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-1">
-        General purpose pipeline
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../stages/introduction/" title="Introduction" class="md-nav__link">
-      Introduction
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../stages/examples/" title="Examples" class="md-nav__link">
-      Examples
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1-3" type="checkbox" id="nav-6-1-3">
-    
-    <label class="md-nav__link" for="nav-6-1-3">
-      Stages
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-6-1-3">
-        Stages
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../stages/init/" title="Init Stage" class="md-nav__link">
-      Init Stage
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../stages/prvoting/" title="Pull-Request Voting Stage" class="md-nav__link">
-      Pull-Request Voting Stage
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../stages/build/" title="Build Stage" class="md-nav__link">
-      Build Stage
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../stages/additionalunittests/" title="Additional Unit Test Stage" class="md-nav__link">
-      Additional Unit Test Stage
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../stages/integration/" title="Integration Stage" class="md-nav__link">
-      Integration Stage
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../stages/acceptance/" title="Acceptance Stage" class="md-nav__link">
-      Acceptance Stage
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../stages/security/" title="Security Stage" class="md-nav__link">
-      Security Stage
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../stages/performance/" title="Performance Stage" class="md-nav__link">
-      Performance Stage
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../stages/compliance/" title="Compliance" class="md-nav__link">
-      Compliance
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../stages/confirm/" title="Confirm Stage" class="md-nav__link">
-      Confirm Stage
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../stages/promote/" title="Promote Stage" class="md-nav__link">
-      Promote Stage
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../stages/release/" title="Release Stage" class="md-nav__link">
-      Release Stage
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
-    
-    <label class="md-nav__link" for="nav-7">
-      Scenarios
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
-        Scenarios
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../scenarios/changeManagement/" title="Build and Deploy Hybrid Applications with Jenkins and SAP Solution Manager" class="md-nav__link">
-      Build and Deploy Hybrid Applications with Jenkins and SAP Solution Manager
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../scenarios/ui5-sap-cp/Readme/" title="Build and Deploy SAP UI5 or SAP Fiori Applications on SAP Cloud Platform with Jenkins" class="md-nav__link">
-      Build and Deploy SAP UI5 or SAP Fiori Applications on SAP Cloud Platform with Jenkins
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../scenarios/CAP_Scenario/" title="Build and Deploy Applications with Jenkins and the SAP Cloud Application Programming Model" class="md-nav__link">
-      Build and Deploy Applications with Jenkins and the SAP Cloud Application Programming Model
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../scenarios/TMS_Extension/" title="Integrate SAP Cloud Platform Transport Management Into Your CI/CD Pipeline" class="md-nav__link">
-      Integrate SAP Cloud Platform Transport Management Into Your CI/CD Pipeline
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
     <label class="md-nav__link" for="nav-8">
@@ -1348,9 +1373,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#optional-install-the-cx-server-toolkit-for-jenkins" title="(Optional) Install the cx-server Toolkit for Jenkins" class="md-nav__link">
-    (Optional) Install the cx-server Toolkit for Jenkins
+  <a href="#recommended-install-the-cx-server-life-cycle-management-for-jenkins" title="Recommended: Install the Cx Server Life-cycle Management for Jenkins" class="md-nav__link">
+    Recommended: Install the Cx Server Life-cycle Management for Jenkins
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-your-own-custom-jenkins-setup" title="On your own: Custom Jenkins Setup" class="md-nav__link">
+    On your own: Custom Jenkins Setup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1424,21 +1462,35 @@
 <ul>
 <li>You have installed a Linux system with at least 4 GB memory. <strong>Note:</strong> We have tested our samples on Ubuntu 16.04. On Microsoft Windows, you might face some issues.</li>
 <li>You have installed the newest version of Docker. See <a href="https://docs.docker.com/install/">Docker Community Edition</a>. <strong>Note:</strong> we have tested on Docker 18.09.6.</li>
-<li>You have installed Jenkins 2.60.3 or higher. <strong>Recommendation:</strong> We recommend to use the <code>cx-server</code> toolkit. See <strong>(Optional) Install the <code>cx-server</code> Toolkit for Jenkins</strong>. <strong>Note:</strong> If you use your <strong>own Jenkins installation</strong> you need to care for "Piper" specific configuration. Follow <a href="../myownjenkins/">my own Jenkins installation</a>.</li>
 <li>Your system has access to <a href="https://github.com">GitHub.com</a>.</li>
 </ul>
-<h2 id="optional-install-the-cx-server-toolkit-for-jenkins">(Optional) Install the <code>cx-server</code> Toolkit for Jenkins<a class="headerlink" href="#optional-install-the-cx-server-toolkit-for-jenkins" title="Permanent link">&para;</a></h2>
-<p><code>cx-server</code>is a lifecycle management toolkit that provides Docker images with a preconfigured Jenkins and a Nexus-based cache to facilitate the configuration and usage of Jenkins.</p>
-<p>To use the toolkit, get the <code>cx-server</code> script and its configuration file <code>server.cfg</code> by using the following command:</p>
+<h2 id="recommended-install-the-cx-server-life-cycle-management-for-jenkins"><strong>Recommended:</strong> Install the Cx Server Life-cycle Management for Jenkins<a class="headerlink" href="#recommended-install-the-cx-server-life-cycle-management-for-jenkins" title="Permanent link">&para;</a></h2>
+<p>Cx Server is a life-cycle management tool to bootstrap a pre-configured Jenkins instance within minutes.
+All required plugins and shared libraries are included automatically.
+It is based on Docker images provided by project "Piper".</p>
+<p>To get started, initialize Cx Server by using this <code>docker run</code> command:</p>
 <div class="codehilite"><pre><span></span>docker run -it --rm -u <span class="k">$(</span>id -u<span class="k">)</span>:<span class="k">$(</span>id -g<span class="k">)</span> -v <span class="s2">&quot;</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">&quot;</span>:/cx-server/mount/ ppiper/cx-server-companion:latest init-cx-server
 </pre></div>
 
-<p>When the files are downloaded into the current directory, launch the Jenkins server by using the following command:</p>
-<div class="codehilite"><pre><span></span>./cx-server start
+<p>This creates a few files in your current working directory.
+The shell script <code>cx-server</code> and the configuration file <code>server.cfg</code> are of special interest.</p>
+<p>Now, you can start the Jenkins server by using the following command:</p>
+<div class="codehilite"><pre><span></span>chmod +x ./cx-server
+./cx-server start
 </pre></div>
 
-<p>For more information on the Jenkins lifecycle management and how to customize your Jenkins, have a look at the <a href="https://github.com/SAP/devops-docker-images/blob/master/docs/operations/cx-server-operations-guide.md">Operations Guide for Cx Server</a>.</p>
+<p>For more information on the Cx Server and how to customize your Jenkins, have a look at the <a href="https://github.com/SAP/devops-docker-cx-server/blob/master/docs/operations/cx-server-operations-guide.md">Operations Guide for Cx Server</a>.</p>
+<h3 id="on-your-own-custom-jenkins-setup">On your own: Custom Jenkins Setup<a class="headerlink" href="#on-your-own-custom-jenkins-setup" title="Permanent link">&para;</a></h3>
+<p>If you use your own Jenkins installation, you need to care for the configuration that is specific to project "Piper".
+This option should only be considered if you know why you need it, otherwise using the Cx Server life-cycle management makes your life much easier.
+If you choose to go this path, follow <a href="../myownjenkins/">my own Jenkins installation</a> for some hints.</p>
+<p><strong>Note:</strong> This option is not supported for SAP Cloud SDK projects.</p>
 <h2 id="optional-sample-application">(Optional) Sample Application<a class="headerlink" href="#optional-sample-application" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Choosing the best sample application</p>
+<p>Depending on the type of project you're interested in, different sample applications might be interesting.
+For SAP Cloud SDK, please have a look at the <a href="https://github.com/sap/cloud-s4-sdk-book">Address Manager</a> example application.</p>
+</div>
 <p>Copy the sources of the application into your own Git repository. While we will ask you to fork the application's repository into a <strong>GitHub</strong> space, you can use any version control system based on Git like <strong>GitLab</strong> or <strong>plain git</strong>. <strong>Note:</strong> A <code>public</code> GitHub repository is visible to the public. The configuration files may contain data you don't want to expose, so use a <code>private</code> repository.</p>
 <ol>
 <li>Create an organization on GitHub, if you haven't any yet. See <a href="https://help.github.com/en/articles/creating-a-new-organization-from-scratch">Creating a new organization</a>.</li>
