@@ -1473,6 +1473,12 @@ You can find details in the <a href="https://docs.cloudfoundry.org/devguide/depl
 <td></td>
 </tr>
 <tr>
+<td><code>cloudFoundry/manifestVariablesFiles</code></td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
 <td><code>cloudFoundry/org</code></td>
 <td>yes</td>
 <td></td>
@@ -1513,6 +1519,12 @@ You can find details in the <a href="https://docs.cloudfoundry.org/devguide/depl
 <td>no</td>
 <td><code>false</code></td>
 <td>true, false</td>
+</tr>
+<tr>
+<td><code>manifestVariables</code></td>
+<td>no</td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td><code>mtaDeployParameters</code></td>
@@ -1563,6 +1575,7 @@ You can find details in the <a href="https://docs.cloudfoundry.org/devguide/depl
 <li><code>cloudFoundry/appName</code> - Defines the name of the application to be deployed to the Cloud Foundry space.</li>
 <li><code>cloudFoundry/credentialsId</code> - Credentials to be used for deployment.</li>
 <li><code>cloudFoundry/manifest</code> - Defines the manifest to be used for deployment to Cloud Foundry.</li>
+<li><code>cloudFoundry/manifestVariablesFiles</code> - Defines the manifest variables Yaml files to be used to replace variable references in manifest. This parameter is optional and will default to <code>["manifest-variables.yml"]</code>. This can be used to set variable files like it is provided by <code>cf push --vars-file &lt;file&gt;</code>.  If the manifest is present and so are all variable files, a variable substitution will be triggered that uses the <code>cfManifestSubstituteVariables</code> step before deployment. The format of variable references follows the <a href="https://docs.cloudfoundry.org/devguide/deploy-apps/manifest-attributes.html#variable-substitution">Cloud Foundry standard</a>.</li>
 <li><code>cloudFoundry/org</code> - Cloud Foundry target organization.</li>
 <li><code>cloudFoundry/space</code> - Cloud Foundry target space.</li>
 <li><code>deployTool</code> - Defines the tool which should be used for deployment.</li>
@@ -1570,6 +1583,7 @@ You can find details in the <a href="https://docs.cloudfoundry.org/devguide/depl
 <li><code>dockerImage</code> - Name of the docker image that should be used. If empty, Docker is not used and the command is executed directly on the Jenkins system.</li>
 <li><code>dockerWorkspace</code> - Kubernetes only: Specifies a dedicated user home directory for the container which will be passed as value for environment variable <code>HOME</code>.</li>
 <li><code>keepOldInstance</code> - In case of a <code>blue-green</code> deployment the old instance will be deleted by default. If this option is set to true the old instance will remain stopped in the Cloud Foundry space.</li>
+<li><code>manifestVariables</code> - Defines a <code>List</code> of variables as key-value <code>Map</code> objects used for variable substitution within the file given by <code>manifest</code>. Defaults to an empty list, if not specified otherwise. This can be used to set variables like it is provided by <code>cf push --var key=value</code>.  The order of the maps of variables given in the list is relevant in case there are conflicting variable names and values between maps contained within the list. In case of conflicts, the last specified map in the list will win.  Though each map entry in the list can contain more than one key-value pair for variable substitution, it is recommended to stick to one entry per map, and rather declare more maps within the list. The reason is that if a map in the list contains more than one key-value entry, and the entries are conflicting, the conflict resolution behavior is undefined (since map entries have no sequence).  Note: variables defined via <code>manifestVariables</code> always win over conflicting variables defined via any file given by <code>manifestVariablesFiles</code> - no matter what is declared before. This is the same behavior as can be observed when using <code>cf push --var</code> in combination with <code>cf push --vars-file</code>.</li>
 <li><code>mtaDeployParameters</code> - Defines additional parameters passed to mta for deployment with the mtaDeployPlugin.</li>
 <li><code>mtaExtensionDescriptor</code> - Defines additional extension descriptor file for deployment with the mtaDeployPlugin.</li>
 <li><code>mtaPath</code> - Defines the path to *.mtar for deployment with the mtaDeployPlugin.</li>
@@ -1611,6 +1625,11 @@ You can find details in the <a href="https://docs.cloudfoundry.org/devguide/depl
 <td>X</td>
 </tr>
 <tr>
+<td><code>cloudFoundry/manifestVariablesFiles</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
 <td><code>cloudFoundry/org</code></td>
 <td></td>
 <td>X</td>
@@ -1642,6 +1661,11 @@ You can find details in the <a href="https://docs.cloudfoundry.org/devguide/depl
 </tr>
 <tr>
 <td><code>keepOldInstance</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>manifestVariables</code></td>
 <td></td>
 <td>X</td>
 </tr>
