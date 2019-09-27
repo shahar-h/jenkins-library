@@ -1592,6 +1592,12 @@ You can find details in the <a href="https://docs.cloudfoundry.org/devguide/depl
 <td><code>[deployDescriptor, pipelineConfigAndTests]</code></td>
 <td></td>
 </tr>
+<tr>
+<td><code>verbose</code></td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table>
 <ul>
@@ -1615,6 +1621,7 @@ You can find details in the <a href="https://docs.cloudfoundry.org/devguide/depl
 <li><code>smokeTestScript</code> - Allows to specify a script which performs a check during blue-green deployment. The script gets the FQDN as parameter and returns <code>exit code 0</code> in case check returned <code>smokeTestStatusCode</code>. More details can be found <a href="https://github.com/bluemixgaragelondon/cf-blue-green-deploy#how-to-use">here</a> <br /> Currently this option is only considered for deployTool <code>cf_native</code>.</li>
 <li><code>smokeTestStatusCode</code> - Expected status code returned by the check.</li>
 <li><code>stashContent</code> - Specific stashes that should be considered for the step execution.</li>
+<li><code>verbose</code> -</li>
 </ul>
 <h2 id="step-configuration">Step configuration<a class="headerlink" href="#step-configuration" title="Permanent link">&para;</a></h2>
 <p>We recommend to define values of step parameters via <a href="../../configuration/">config.yml file</a>.</p>
@@ -1725,6 +1732,11 @@ You can find details in the <a href="https://docs.cloudfoundry.org/devguide/depl
 </tr>
 <tr>
 <td><code>stashContent</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>verbose</code></td>
 <td></td>
 <td>X</td>
 </tr>
