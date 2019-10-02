@@ -1473,6 +1473,18 @@ You can find details in the <a href="https://docs.cloudfoundry.org/devguide/depl
 </thead>
 <tbody>
 <tr>
+<td><code>apiParameters</code></td>
+<td>no</td>
+<td>``</td>
+<td></td>
+</tr>
+<tr>
+<td><code>cfNativeDeployParameters</code></td>
+<td>no</td>
+<td>``</td>
+<td></td>
+</tr>
+<tr>
 <td><code>cloudFoundry/apiEndpoint</code></td>
 <td>no</td>
 <td><code>https://api.cf.eu10.hana.ondemand.com</code></td>
@@ -1545,6 +1557,12 @@ You can find details in the <a href="https://docs.cloudfoundry.org/devguide/depl
 <td>true, false</td>
 </tr>
 <tr>
+<td><code>loginParameters</code></td>
+<td>no</td>
+<td>``</td>
+<td></td>
+</tr>
+<tr>
 <td><code>manifestVariables</code></td>
 <td>no</td>
 <td></td>
@@ -1596,11 +1614,13 @@ You can find details in the <a href="https://docs.cloudfoundry.org/devguide/depl
 <td><code>verbose</code></td>
 <td>no</td>
 <td></td>
-<td></td>
+<td>true, false</td>
 </tr>
 </tbody>
 </table>
 <ul>
+<li><code>apiParameters</code> - Addition command line options for cf api command. No escaping/quoting is performed. Not recommanded for productive environments.</li>
+<li><code>cfNativeDeployParameters</code> - Additional parameters passed to cf native deployment command.</li>
 <li><code>cloudFoundry/apiEndpoint</code> - Cloud Foundry API endpoint.</li>
 <li><code>cloudFoundry/appName</code> - Defines the name of the application to be deployed to the Cloud Foundry space.</li>
 <li><code>cloudFoundry/credentialsId</code> - Credentials to be used for deployment.</li>
@@ -1613,15 +1633,16 @@ You can find details in the <a href="https://docs.cloudfoundry.org/devguide/depl
 <li><code>dockerImage</code> - Name of the docker image that should be used. If empty, Docker is not used and the command is executed directly on the Jenkins system.</li>
 <li><code>dockerWorkspace</code> - Kubernetes only: Specifies a dedicated user home directory for the container which will be passed as value for environment variable <code>HOME</code>.</li>
 <li><code>keepOldInstance</code> - In case of a <code>blue-green</code> deployment the old instance will be deleted by default. If this option is set to true the old instance will remain stopped in the Cloud Foundry space.</li>
+<li><code>loginParameters</code> - Addition command line options for cf login command. No escaping/quoting is performed. Not recommanded for productive environments.</li>
 <li><code>manifestVariables</code> - Defines a <code>List</code> of variables as key-value <code>Map</code> objects used for variable substitution within the file given by <code>manifest</code>. Defaults to an empty list, if not specified otherwise. This can be used to set variables like it is provided by <code>cf push --var key=value</code>.  The order of the maps of variables given in the list is relevant in case there are conflicting variable names and values between maps contained within the list. In case of conflicts, the last specified map in the list will win.  Though each map entry in the list can contain more than one key-value pair for variable substitution, it is recommended to stick to one entry per map, and rather declare more maps within the list. The reason is that if a map in the list contains more than one key-value entry, and the entries are conflicting, the conflict resolution behavior is undefined (since map entries have no sequence).  Note: variables defined via <code>manifestVariables</code> always win over conflicting variables defined via any file given by <code>manifestVariablesFiles</code> - no matter what is declared before. This is the same behavior as can be observed when using <code>cf push --var</code> in combination with <code>cf push --vars-file</code>.</li>
-<li><code>mtaDeployParameters</code> - Defines additional parameters passed to mta for deployment with the mtaDeployPlugin.</li>
+<li><code>mtaDeployParameters</code> - Additional parameters passed to mta deployment command.</li>
 <li><code>mtaExtensionDescriptor</code> - Defines additional extension descriptor file for deployment with the mtaDeployPlugin.</li>
 <li><code>mtaPath</code> - Defines the path to *.mtar for deployment with the mtaDeployPlugin.</li>
 <li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
 <li><code>smokeTestScript</code> - Allows to specify a script which performs a check during blue-green deployment. The script gets the FQDN as parameter and returns <code>exit code 0</code> in case check returned <code>smokeTestStatusCode</code>. More details can be found <a href="https://github.com/bluemixgaragelondon/cf-blue-green-deploy#how-to-use">here</a> <br /> Currently this option is only considered for deployTool <code>cf_native</code>.</li>
 <li><code>smokeTestStatusCode</code> - Expected status code returned by the check.</li>
 <li><code>stashContent</code> - Specific stashes that should be considered for the step execution.</li>
-<li><code>verbose</code> -</li>
+<li><code>verbose</code> - Provides more output. May reveal sensitive information.</li>
 </ul>
 <h2 id="step-configuration">Step configuration<a class="headerlink" href="#step-configuration" title="Permanent link">&para;</a></h2>
 <p>We recommend to define values of step parameters via <a href="../../configuration/">config.yml file</a>.</p>
@@ -1635,6 +1656,16 @@ You can find details in the <a href="https://docs.cloudfoundry.org/devguide/depl
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><code>apiParameters</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>cfNativeDeployParameters</code></td>
+<td></td>
+<td>X</td>
+</tr>
 <tr>
 <td><code>cloudFoundry/apiEndpoint</code></td>
 <td></td>
@@ -1692,6 +1723,11 @@ You can find details in the <a href="https://docs.cloudfoundry.org/devguide/depl
 </tr>
 <tr>
 <td><code>keepOldInstance</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>loginParameters</code></td>
 <td></td>
 <td>X</td>
 </tr>
