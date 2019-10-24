@@ -1770,7 +1770,7 @@
 <p>Deploys an Application to SAP Cloud Platform (SAP CP) using the SAP Cloud Platform Console Client (Neo Java Web SDK).</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>SAP CP account</strong> - the account to where the application is deployed.</li>
+<li><strong>SAP CP account</strong> - the account to where the application is deployed. To deploy MTA (<code>deployMode: mta</code>) an over existing <em>Java</em> application, free <em>Java Quota</em> of at least 1 is required, which means that this will not work on trial accounts.</li>
 <li><strong>SAP CP user for deployment</strong> - a user with deployment permissions in the given account.</li>
 <li><strong>Jenkins credentials for deployment</strong> - must be configured in Jenkins credentials with a dedicated Id.</li>
 </ul>
