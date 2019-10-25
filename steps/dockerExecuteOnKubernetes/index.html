@@ -2001,7 +2001,7 @@ Proxy environment variables defined on the Jenkins machine are also available in
 <li><code>containerCommand</code> - Allows to specify start command for container created with dockerImage parameter to overwrite Piper default (<code>/usr/bin/tail -f /dev/null</code>).</li>
 <li><code>containerCommands</code> - Specifies start command for containers to overwrite Piper default (<code>/usr/bin/tail -f /dev/null</code>). If container's defaultstart command should be used provide empty string like: <code>['selenium/standalone-chrome': '']</code>.</li>
 <li><code>containerEnvVars</code> - Specifies environment variables per container. If not provided <code>dockerEnvVars</code> will be used.</li>
-<li><code>containerMap</code> - A map of docker image to the name of the container. The pod will be created with all the images from this map and they are labled based on the value field of each map entry. Example: <code>['maven:3.5-jdk-8-alpine': 'mavenExecute', 'selenium/standalone-chrome': 'selenium', 'famiko/jmeter-base': 'checkJMeter', 's4sdk/docker-cf-cli': 'cloudfoundry']</code></li>
+<li><code>containerMap</code> - A map of docker image to the name of the container. The pod will be created with all the images from this map and they are labled based on the value field of each map entry. Example: <code>['maven:3.5-jdk-8-alpine': 'mavenExecute', 'selenium/standalone-chrome': 'selenium', 'famiko/jmeter-base': 'checkJMeter', 'ppiper/cf-cli': 'cloudfoundry']</code></li>
 <li><code>containerName</code> - Optional configuration in combination with containerMap to define the container where the commands should be executed in.</li>
 <li><code>containerPortMappings</code> - Map which defines per docker image the port mappings, e.g. <code>containerPortMappings: ['selenium/standalone-chrome': [[name: 'selPort', containerPort: 4444, hostPort: 4444]]]</code>.</li>
 <li><code>containerPullImageFlags</code> - Specifies the pullImage flag per container.</li>
@@ -2222,7 +2222,7 @@ docker image. This images comes with preinstalled plugins.</p>
 <span class="nb">export</span> <span class="nv">ON_K8S</span><span class="o">=</span>true<span class="s2">&quot;</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span><span class="n">dockerExecuteOnKubernetes</span><span class="o">(</span><span class="nl">script:</span> <span class="n">script</span><span class="o">,</span> <span class="nl">containerMap:</span> <span class="o">[</span><span class="s1">&#39;maven:3.5-jdk-8-alpine&#39;</span><span class="o">:</span> <span class="s1">&#39;maven&#39;</span><span class="o">,</span> <span class="s1">&#39;s4sdk/docker-cf-cli&#39;</span><span class="o">:</span> <span class="s1">&#39;cfcli&#39;</span><span class="o">]){</span>
+<div class="codehilite"><pre><span></span><span class="n">dockerExecuteOnKubernetes</span><span class="o">(</span><span class="nl">script:</span> <span class="n">script</span><span class="o">,</span> <span class="nl">containerMap:</span> <span class="o">[</span><span class="s1">&#39;maven:3.5-jdk-8-alpine&#39;</span><span class="o">:</span> <span class="s1">&#39;maven&#39;</span><span class="o">,</span> <span class="s1">&#39;ppiper/cf-cli&#39;</span><span class="o">:</span> <span class="s1">&#39;cfcli&#39;</span><span class="o">]){</span>
     <span class="n">container</span><span class="o">(</span><span class="s1">&#39;maven&#39;</span><span class="o">){</span>
         <span class="n">sh</span> <span class="s2">&quot;mvn clean install&quot;</span>
     <span class="o">}</span>
