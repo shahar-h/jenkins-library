@@ -1865,8 +1865,8 @@
 <ul>
 <li><code>customTlsCertificateLinks</code> - List containing download links of custom TLS certificates. This is required to ensure trusted connections to instances with custom certificates.</li>
 <li><code>disableInlineComments</code> - Pull-Request voting only: Disables the pull-request decoration with inline comments. deprecated: only supported in LTS / &lt; 7.2</li>
-<li><code>dockerImage</code> - Name of the docker image that should be used. If empty, Docker is not used and the command is executed directly on the Jenkins system. see dockerExecute</li>
-<li><code>githubApiUrl</code> - Pull-Request voting only: The URL to the Github API. see https://docs.sonarqube.org/display/PLUG/GitHub+Plugin#GitHubPlugin-Usage deprecated: only supported in LTS / &lt; 7.2</li>
+<li><code>dockerImage</code> - Name of the docker image that should be used. If empty, Docker is not used and the command is executed directly on the Jenkins system. see <a href="../dockerExecute/">dockerExecute</a></li>
+<li><code>githubApiUrl</code> - Pull-Request voting only: The URL to the Github API. see <a href="https://docs.sonarqube.org/display/PLUG/GitHub+Plugin#GitHubPlugin-Usage">GitHub plugin docs</a> deprecated: only supported in LTS / &lt; 7.2</li>
 <li><code>githubOrg</code> - Pull-Request voting only: The Github organization. @default: <code>commonPipelineEnvironment.getGithubOrg()</code></li>
 <li><code>githubRepo</code> - Pull-Request voting only: The Github repository. @default: <code>commonPipelineEnvironment.getGithubRepo()</code></li>
 <li><code>githubTokenCredentialsId</code> - Pull-Request voting only: The Jenkins credentialId for a Github token. It is needed to report findings back to the pull-request. deprecated: only supported in LTS / &lt; 7.2</li>
@@ -1876,7 +1876,7 @@
 <li><code>organization</code> - Organization that the project will be assigned to in SonarCloud.io.</li>
 <li><code>projectVersion</code> - The project version that is reported to SonarQube. @default: major number of <code>commonPipelineEnvironment.getArtifactVersion()</code></li>
 <li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
-<li><code>sonarTokenCredentialsId</code> - The Jenkins credentialsId for a SonarQube token. It is needed for non-anonymous analysis runs. see https://sonarcloud.io/account/security</li>
+<li><code>sonarTokenCredentialsId</code> - The Jenkins credentialsId for a SonarQube token. It is needed for non-anonymous analysis runs. see <a href="https://docs.sonarqube.org/latest/user-guide/user-token/">SonarQube docs</a></li>
 <li><code>verbose</code> - Print more detailed information into the log.</li>
 </ul>
 <h2 id="step-configuration">Step configuration<a class="headerlink" href="#step-configuration" title="Permanent link">&para;</a></h2>
