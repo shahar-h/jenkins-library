@@ -1473,7 +1473,7 @@ Using Gauge it will be possible to have a three-tier test layout:</p>
 <tr>
 <td><code>dockerEnvVars</code></td>
 <td>no</td>
-<td><code>[HUB:TRUE, HUB_URL:http://localhost:4444/wd/hub]</code></td>
+<td>buildTool=<code>maven</code>:<code>&lt;empty&gt;</code><br />buildTool=<code>npm</code>:<code>&lt;empty&gt;</code><br />buildTool=<code>bundler</code>:<code>&lt;empty&gt;</code></td>
 <td></td>
 </tr>
 <tr>
@@ -1486,6 +1486,12 @@ Using Gauge it will be possible to have a three-tier test layout:</p>
 <td><code>dockerName</code></td>
 <td>no</td>
 <td>buildTool=<code>maven</code>:<code>maven</code><br />buildTool=<code>npm</code>:<code>npm</code><br />buildTool=<code>bundler</code>:<code>bundler</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>dockerOptions</code></td>
+<td>no</td>
+<td>buildTool=<code>maven</code>:<code>&lt;empty&gt;</code><br />buildTool=<code>npm</code>:<code>&lt;empty&gt;</code><br />buildTool=<code>bundler</code>:<code>&lt;empty&gt;</code></td>
 <td></td>
 </tr>
 <tr>
@@ -1567,6 +1573,7 @@ Using Gauge it will be possible to have a three-tier test layout:</p>
 <li><code>dockerEnvVars</code> - Environment variables to set in the container, e.g. [http_proxy: 'proxy:8080'].</li>
 <li><code>dockerImage</code> - Name of the docker image that should be used. If empty, Docker is not used and the command is executed directly on the Jenkins system.</li>
 <li><code>dockerName</code> - Kubernetes only: Name of the container launching <code>dockerImage</code>. SideCar only: Name of the container in local network.</li>
+<li><code>dockerOptions</code> - Docker options to be set when starting the container (List or String).</li>
 <li><code>dockerWorkspace</code> - Kubernetes only: Specifies a dedicated user home directory for the container which will be passed as value for environment variable <code>HOME</code>.</li>
 <li><code>failOnError</code> - Defines the behavior in case tests fail. When this is set to <code>true</code> test results cannot be recorded using the <code>publishTestResults</code> step afterwards.</li>
 <li><code>gitBranch</code> - Defines the branch containing the tests, in case the test implementation is stored in a different repository and a different branch than master.</li>
@@ -1609,6 +1616,11 @@ Using Gauge it will be possible to have a three-tier test layout:</p>
 </tr>
 <tr>
 <td><code>dockerName</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>dockerOptions</code></td>
 <td></td>
 <td>X</td>
 </tr>

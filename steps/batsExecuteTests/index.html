@@ -1442,9 +1442,21 @@
 </thead>
 <tbody>
 <tr>
+<td><code>dockerEnvVars</code></td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
 <td><code>dockerImage</code></td>
 <td>no</td>
 <td><code>node:8-stretch</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>dockerOptions</code></td>
+<td>no</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
@@ -1522,7 +1534,9 @@
 </tbody>
 </table>
 <ul>
+<li><code>dockerEnvVars</code> - Environment variables to set in the container, e.g. [http_proxy: 'proxy:8080'].</li>
 <li><code>dockerImage</code> - Name of the docker image that should be used. If empty, Docker is not used and the command is executed directly on the Jenkins system.</li>
+<li><code>dockerOptions</code> - Docker options to be set when starting the container (List or String).</li>
 <li><code>dockerWorkspace</code> - Kubernetes only: Specifies a dedicated user home directory for the container which will be passed as value for environment variable <code>HOME</code>.</li>
 <li><code>envVars</code> - Defines the environment variables to pass to the test execution.</li>
 <li><code>failOnError</code> - Defines the behavior, in case tests fail. For example, in case of <code>outputFormat: 'junit'</code> you should set it to <code>false</code>. Otherwise test results cannot be recorded using the <code>testsPublishhResults</code> step afterwards.</li>
@@ -1549,7 +1563,17 @@
 </thead>
 <tbody>
 <tr>
+<td><code>dockerEnvVars</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
 <td><code>dockerImage</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>dockerOptions</code></td>
 <td></td>
 <td>X</td>
 </tr>

@@ -1493,6 +1493,12 @@
 <td></td>
 </tr>
 <tr>
+<td><code>dockerEnvVars</code></td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
 <td><code>dockerImage</code></td>
 <td>no</td>
 <td><code>ppiper/mta-archive-builder</code></td>
@@ -1500,6 +1506,12 @@
 </tr>
 <tr>
 <td><code>dockerOptions</code></td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>dockerWorkspace</code></td>
 <td>no</td>
 <td></td>
 <td></td>
@@ -1540,8 +1552,10 @@
 <li><code>applicationName</code> - The name of the application which is being built. If the parameter has been provided and no <code>mta.yaml</code> exists, the <code>mta.yaml</code> will be automatically generated using this parameter and the information (<code>name</code> and <code>version</code>) from <code>package.json</code> before the actual build starts.</li>
 <li><code>buildTarget</code> - The target platform to which the mtar can be deployed.</li>
 <li><code>defaultNpmRegistry</code> - Url to the npm registry that should be used for installing npm dependencies.</li>
+<li><code>dockerEnvVars</code> - Environment variables to set in the container, e.g. [http_proxy: 'proxy:8080'].</li>
 <li><code>dockerImage</code> - Name of the docker image that should be used. If empty, Docker is not used and the command is executed directly on the Jenkins system.</li>
 <li><code>dockerOptions</code> - Docker options to be set when starting the container (List or String).</li>
+<li><code>dockerWorkspace</code> - Kubernetes only: Specifies a dedicated user home directory for the container which will be passed as value for environment variable <code>HOME</code>.</li>
 <li><code>extension</code> - The path to the extension descriptor file.</li>
 <li><code>globalSettingsFile</code> - Path or url to the mvn settings file that should be used as global settings file.</li>
 <li><code>mtaJarLocation</code> - The location of the SAP Multitarget Application Archive Builder jar file, including file name and extension. If it is not provided, the SAP Multitarget Application Archive Builder is expected on PATH.</li>
@@ -1576,6 +1590,11 @@
 <td></td>
 </tr>
 <tr>
+<td><code>dockerEnvVars</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
 <td><code>dockerImage</code></td>
 <td></td>
 <td>X</td>
@@ -1583,7 +1602,12 @@
 <tr>
 <td><code>dockerOptions</code></td>
 <td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>dockerWorkspace</code></td>
 <td></td>
+<td>X</td>
 </tr>
 <tr>
 <td><code>extension</code></td>

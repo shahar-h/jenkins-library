@@ -1638,6 +1638,12 @@
 <td></td>
 </tr>
 <tr>
+<td><code>dockerOptions</code></td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
 <td><code>dockerWorkspace</code></td>
 <td>no</td>
 <td>buildTool=<code>maven</code>:<code>&lt;empty&gt;</code><br />buildTool=<code>npm</code>:<code>/home/node</code><br />buildTool=<code>bundler</code>:<code>&lt;empty&gt;</code></td>
@@ -1711,6 +1717,7 @@
 <li><code>dockerEnvVars</code> - Environment variables to set in the container, e.g. [http_proxy: 'proxy:8080'].</li>
 <li><code>dockerImage</code> - Name of the docker image that should be used. If empty, Docker is not used and the command is executed directly on the Jenkins system.</li>
 <li><code>dockerName</code> - Kubernetes only: Name of the container launching <code>dockerImage</code>. SideCar only: Name of the container in local network.</li>
+<li><code>dockerOptions</code> - Docker options to be set when starting the container (List or String).</li>
 <li><code>dockerWorkspace</code> - Kubernetes only: Specifies a dedicated user home directory for the container which will be passed as value for environment variable <code>HOME</code>.</li>
 <li><code>failOnError</code> - With <code>failOnError</code> the behavior in case tests fail can be defined.</li>
 <li><code>gitBranch</code> - Only if <code>testRepository</code> is provided: Branch of testRepository, defaults to master.</li>
@@ -1757,6 +1764,11 @@
 </tr>
 <tr>
 <td><code>dockerName</code></td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>dockerOptions</code></td>
 <td>X</td>
 <td>X</td>
 </tr>

@@ -1524,9 +1524,21 @@ access protection imposed on the WhiteSource backend would simply allow access b
 <td><code>-1</code> to switch failing off, any <code>positive integer between 0 and 10</code> to fail on issues with the specified limit or above</td>
 </tr>
 <tr>
+<td><code>dockerEnvVars</code></td>
+<td>no</td>
+<td>scanType=<code>golang</code>:<code>&lt;empty&gt;</code><br />scanType=<code>maven</code>:<code>&lt;empty&gt;</code><br />scanType=<code>mta</code>:<code>&lt;empty&gt;</code><br />scanType=<code>npm</code>:<code>&lt;empty&gt;</code><br />scanType=<code>pip</code>:<code>&lt;empty&gt;</code><br />scanType=<code>sbt</code>:<code>&lt;empty&gt;</code><br />scanType=<code>dub</code>:<code>&lt;empty&gt;</code></td>
+<td></td>
+</tr>
+<tr>
 <td><code>dockerImage</code></td>
 <td>no</td>
 <td>scanType=<code>golang</code>:<code>golang:1.12-stretch</code><br />scanType=<code>maven</code>:<code>maven:3.5-jdk-8</code><br />scanType=<code>mta</code>:<code>&lt;empty&gt;</code><br />scanType=<code>npm</code>:<code>node:8-stretch</code><br />scanType=<code>pip</code>:<code>python:3.7.2-stretch</code><br />scanType=<code>sbt</code>:<code>hseeberger/scala-sbt:8u181_2.12.8_1.2.8</code><br />scanType=<code>dub</code>:<code>buildpack-deps:stretch-curl</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>dockerOptions</code></td>
+<td>no</td>
+<td>scanType=<code>golang</code>:<code>&lt;empty&gt;</code><br />scanType=<code>maven</code>:<code>&lt;empty&gt;</code><br />scanType=<code>mta</code>:<code>&lt;empty&gt;</code><br />scanType=<code>npm</code>:<code>&lt;empty&gt;</code><br />scanType=<code>pip</code>:<code>&lt;empty&gt;</code><br />scanType=<code>sbt</code>:<code>&lt;empty&gt;</code><br />scanType=<code>dub</code>:<code>&lt;empty&gt;</code></td>
 <td></td>
 </tr>
 <tr>
@@ -1678,7 +1690,9 @@ access protection imposed on the WhiteSource backend would simply allow access b
 <li><code>configFilePath</code> - Explicit path to the WhiteSource Unified Agent configuration file.</li>
 <li><code>createProductFromPipeline</code> - Whether to create the related WhiteSource product on the fly based on the supplied pipeline configuration.</li>
 <li><code>cvssSeverityLimit</code> - Limit of tollerable CVSS v3 score upon assessment and in consequence fails the build, defaults to  <code>-1</code>.</li>
+<li><code>dockerEnvVars</code> - Environment variables to set in the container, e.g. [http_proxy: 'proxy:8080'].</li>
 <li><code>dockerImage</code> - Docker image to be used for scanning.</li>
+<li><code>dockerOptions</code> - Docker options to be set when starting the container (List or String).</li>
 <li><code>dockerWorkspace</code> - Docker workspace to be used for scanning.</li>
 <li><code>emailAddressesOfInitialProductAdmins</code> - The list of email addresses to assign as product admins for newly created WhiteSource products.</li>
 <li><code>installCommand</code> - Install command that can be used to populate the default docker image for some scenarios.</li>
@@ -1756,7 +1770,17 @@ access protection imposed on the WhiteSource backend would simply allow access b
 <td>X</td>
 </tr>
 <tr>
+<td><code>dockerEnvVars</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
 <td><code>dockerImage</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>dockerOptions</code></td>
 <td></td>
 <td>X</td>
 </tr>

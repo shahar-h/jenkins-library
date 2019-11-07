@@ -1430,6 +1430,12 @@
 <td></td>
 </tr>
 <tr>
+<td><code>dockerEnvVars</code></td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
 <td><code>dockerImage</code></td>
 <td>no</td>
 <td><code>node:8-stretch</code></td>
@@ -1437,6 +1443,12 @@
 </tr>
 <tr>
 <td><code>dockerOptions</code></td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>dockerWorkspace</code></td>
 <td>no</td>
 <td></td>
 <td></td>
@@ -1457,8 +1469,10 @@
 </table>
 <ul>
 <li><code>defaultNpmRegistry</code> - URL of default NPM registry</li>
+<li><code>dockerEnvVars</code> - Environment variables to set in the container, e.g. [http_proxy: 'proxy:8080'].</li>
 <li><code>dockerImage</code> - Name of the docker image that should be used, in which node should be installed and configured. Default value is 'node:8-stretch'.</li>
 <li><code>dockerOptions</code> - Docker options to be set when starting the container.</li>
+<li><code>dockerWorkspace</code> - Kubernetes only: Specifies a dedicated user home directory for the container which will be passed as value for environment variable <code>HOME</code>.</li>
 <li><code>npmCommand</code> - Which NPM command should be executed.</li>
 <li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
 </ul>
@@ -1480,6 +1494,11 @@
 <td>X</td>
 </tr>
 <tr>
+<td><code>dockerEnvVars</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
 <td><code>dockerImage</code></td>
 <td></td>
 <td>X</td>
@@ -1487,7 +1506,12 @@
 <tr>
 <td><code>dockerOptions</code></td>
 <td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>dockerWorkspace</code></td>
 <td></td>
+<td>X</td>
 </tr>
 <tr>
 <td><code>npmCommand</code></td>

@@ -1479,9 +1479,27 @@
 <td></td>
 </tr>
 <tr>
+<td><code>dockerEnvVars</code></td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
 <td><code>dockerImage</code></td>
 <td>no</td>
 <td><code>node:8-stretch</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>dockerOptions</code></td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>dockerWorkspace</code></td>
+<td>no</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
@@ -1536,7 +1554,10 @@
 </table>
 <ul>
 <li><code>buildDescriptorFile</code> - The path to the build descriptor file, e.g. <code>./package.json</code>.</li>
+<li><code>dockerEnvVars</code> - Environment variables to set in the container, e.g. [http_proxy: 'proxy:8080'].</li>
 <li><code>dockerImage</code> - Name of the docker image that should be used. If empty, Docker is not used and the command is executed directly on the Jenkins system.</li>
+<li><code>dockerOptions</code> - Docker options to be set when starting the container (List or String).</li>
+<li><code>dockerWorkspace</code> - Kubernetes only: Specifies a dedicated user home directory for the container which will be passed as value for environment variable <code>HOME</code>.</li>
 <li><code>exclude</code> - Only scanType 'mta': Exclude modules from MTA projects.</li>
 <li><code>monitor</code> - Monitor the application's dependencies for new vulnerabilities.</li>
 <li><code>scanType</code> - The type of project that should be scanned.</li>
@@ -1564,7 +1585,22 @@
 <td>X</td>
 </tr>
 <tr>
+<td><code>dockerEnvVars</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
 <td><code>dockerImage</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>dockerOptions</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>dockerWorkspace</code></td>
 <td></td>
 <td>X</td>
 </tr>
