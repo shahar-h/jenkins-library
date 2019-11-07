@@ -174,6 +174,7 @@ void call(Map parameters = [:]) {
                     config.options.add("sonar.pullrequest.key=${env.CHANGE_ID}")
                     config.options.add("sonar.pullrequest.base=${env.CHANGE_TARGET}")
 //                    config.options.add("sonar.pullrequest.branch=${env.BRANCH_NAME}")
+                    config.options.add("sonar.pullrequest.branch=${env.CHANGE_BRANCH}")
                     config.options.add("sonar.pullrequest.provider=${config.pullRequestProvider}")
                     switch(config.pullRequestProvider){
                         case 'GitHub':
