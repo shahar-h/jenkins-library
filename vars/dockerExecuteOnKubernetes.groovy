@@ -252,7 +252,7 @@ void executeOnPod(Map config, utils, Closure body, Script script) {
                             utils.unstashAll(stashContent)
                             body()
                         } finally {
-                            stashWorkspace(config, 'container', true, true)
+                            stashWorkspace(config, 'container', true, true, true)
                         }
                     }
                 } else {
@@ -284,7 +284,7 @@ private String generatePodSpec(Map config) {
 }
 
 
-private String stashWorkspace(config, prefix, boolean chown = false, boolean stashBack = false) {
+private String stashWorkspace(config, prefix, boolean chown = false, boolean stashBack = false, boolean useDefaultExcludes = false) {
     def stashName = "${prefix}-${config.uniqueId}"
     try {
         if (chown) {
@@ -309,7 +309,7 @@ chown -R ${runAsUser}:${fsGroup} ."""
             name: stashName,
             includes: includes,
             excludes: excludes,
-            useDefaultExcludes: config.useDefaultExcludes
+            useDefaultExcludes: useDefaultExcludes ?: config.useDefaultExcludes
         )
         //inactive due to negative side-effects, we may require a dedicated git stash to be used
         //useDefaultExcludes: false)
