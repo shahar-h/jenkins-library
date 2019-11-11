@@ -219,6 +219,7 @@ steps:
       workspace: '**/*'
     stashExcludes:
       workspace: 'nohup.out'
+    useDefaultExcludes: true
   dubExecute:
     dockerImage: 'dlang2/dmd-ubuntu:latest'
   githubPublishRelease:
