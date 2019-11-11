@@ -6,11 +6,11 @@ Init:
     excludes: ".pipeline/**"
 
 'Pull-Request Voting':
-  unstash: ['source']
+  unstash: ['source','git']
   stashes: []
 
 'Build':
-  unstash: ['source']
+  unstash: ['source','git']
   stashes: []
 
 'Acceptance':
