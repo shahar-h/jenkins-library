@@ -21,7 +21,8 @@ import hudson.AbortException
      * Print more detailed information into the log.
      * @possibleValues `true`, `false`
      */
-    'verbose'
+    'verbose',
+    'useDefaultExcludes'
 ]
 @Field Set STEP_CONFIG_KEYS = GENERAL_CONFIG_KEYS.plus([
     /**
@@ -307,7 +308,8 @@ chown -R ${runAsUser}:${fsGroup} ."""
         stash(
             name: stashName,
             includes: includes,
-            excludes: excludes
+            excludes: excludes,
+            useDefaultExcludes: config.useDefaultExcludes
         )
         //inactive due to negative side-effects, we may require a dedicated git stash to be used
         //useDefaultExcludes: false)
