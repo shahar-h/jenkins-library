@@ -119,6 +119,10 @@ void call(Map parameters = [:]) {
         if(configuration.options instanceof String)
             configuration.options = [].plus(configuration.options)
         
+        sh "ls -la"
+        
+        sh "git status"
+        
         def worker = { config ->
             try {
                 withSonarQubeEnv(config.instance) {
@@ -132,6 +136,8 @@ void call(Map parameters = [:]) {
                         // prefix options
                         config.options = config.options.collect { it.startsWith('-D') ? it : "-D${it}" }
 
+                        sh "git status"
+                    
                         sh "PATH=\$PATH:${env.WORKSPACE}/.sonar-scanner/bin sonar-scanner ${config.options.join(' ')}"
                 }
             } finally {
