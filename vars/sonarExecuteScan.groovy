@@ -195,7 +195,8 @@ void call(Map parameters = [:]) {
 
         dockerExecute(
             script: script,
-            dockerImage: configuration.dockerImage
+            dockerImage: configuration.dockerImage,
+            useDefaultExcludes: false
         ){
             worker(configuration)
         }
