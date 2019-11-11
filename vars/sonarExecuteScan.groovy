@@ -119,6 +119,8 @@ void call(Map parameters = [:]) {
         if(configuration.options instanceof String)
             configuration.options = [].plus(configuration.options)
 
+        unstash 'git'
+        
         def worker = { config ->
             try {
                 withSonarQubeEnv(config.instance) {
