@@ -17,7 +17,8 @@ import groovy.transform.Field
     /**
      *
      */
-    'jenkinsKubernetes'
+    'jenkinsKubernetes',
+    'useDefaultExcludes'
 ]
 @Field Set STEP_CONFIG_KEYS = GENERAL_CONFIG_KEYS.plus([
     /**
@@ -163,7 +164,8 @@ void call(Map parameters = [:], body) {
                         dockerPullImage: config.dockerPullImage,
                         dockerEnvVars: config.dockerEnvVars,
                         dockerWorkspace: config.dockerWorkspace,
-                        stashContent: config.stashContent
+                        stashContent: config.stashContent,
+                        useDefaultExcludes: config.useDefaultExcludes
                     ){
                         echo "[INFO][${STEP_NAME}] Executing inside a Kubernetes Pod"
                         body()
@@ -184,7 +186,8 @@ void call(Map parameters = [:], body) {
                         sidecarImage: parameters.sidecarImage,
                         sidecarPullImage: parameters.sidecarPullImage,
                         sidecarReadyCommand: parameters.sidecarReadyCommand,
-                        sidecarEnvVars: parameters.sidecarEnvVars
+                        sidecarEnvVars: parameters.sidecarEnvVars,
+                        useDefaultExcludes: config.useDefaultExcludes
                     ) {
                         echo "[INFO][${STEP_NAME}] Executing inside a Kubernetes Pod"
                         body()
