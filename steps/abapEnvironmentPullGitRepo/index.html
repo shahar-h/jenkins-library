@@ -1454,7 +1454,6 @@
 <ul>
 <li>A SAP Cloud Platform ABAP Environment system is available.</li>
 <li>On this system, a <a href="https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/0377adea0401467f939827242c1f4014.html">Communication User</a>, a <a href="https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/1bfe32ae08074b7186e375ab425fb114.html">Communication System</a> and a <a href="https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/a0771f6765f54e1c8193ad8582a32edb.html">Communication Arrangement</a> is setup for the Communication Scenario "SAP Cloud Platform ABAP Environment - Software Component Test Integration (SAP_COM_0510)".</li>
-<li>It is recommended to use the Jenkins credentials configuration for user and password handling and wrap the call to "abapEnvironmentPullGitRepo" with the Jenkins Step "withCredentials".</li>
 </ul>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
 <table>
@@ -1468,6 +1467,12 @@
 </thead>
 <tbody>
 <tr>
+<td><code>credentialsId</code></td>
+<td>yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
 <td><code>host</code></td>
 <td>no</td>
 <td></td>
@@ -1475,12 +1480,6 @@
 </tr>
 <tr>
 <td><code>host', 'Host not provided</code></td>
-<td>yes</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>password</code></td>
 <td>yes</td>
 <td></td>
 <td></td>
@@ -1503,22 +1502,15 @@
 <td></td>
 <td></td>
 </tr>
-<tr>
-<td><code>username</code></td>
-<td>yes</td>
-<td></td>
-<td></td>
-</tr>
 </tbody>
 </table>
 <ul>
+<li><code>credentialsId</code> - Jenkins CredentialsId containing the communication user and password of the communciation scenario SAP_COM_0510</li>
 <li><code>host</code> - Specifies the host address of the SAP Cloud Platform ABAP Environment system</li>
 <li><code>host', 'Host not provided</code> - </li>
-<li><code>password</code> - Specifies the password of the communication user</li>
 <li><code>repositoryName</code> - Specifies the name of the Repository (Software Component) on the SAP Cloud Platform ABAP Environment system</li>
 <li><code>repositoryName', 'Repository / Software Component not provided</code> - </li>
 <li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
-<li><code>username</code> - Specifies the communication user of the communication scenario SAP_COM_0510</li>
 </ul>
 <h2 id="step-configuration">Step configuration<a class="headerlink" href="#step-configuration" title="Permanent link">&para;</a></h2>
 <p>We recommend to define values of step parameters via <a href="../../configuration/">config.yml file</a>.</p>
@@ -1533,6 +1525,11 @@
 </thead>
 <tbody>
 <tr>
+<td><code>credentialsId</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
 <td><code>host</code></td>
 <td>X</td>
 <td>X</td>
@@ -1541,11 +1538,6 @@
 <td><code>host', 'Host not provided</code></td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td><code>password</code></td>
-<td></td>
-<td>X</td>
 </tr>
 <tr>
 <td><code>repositoryName</code></td>
@@ -1562,16 +1554,12 @@
 <td></td>
 <td></td>
 </tr>
-<tr>
-<td><code>username</code></td>
-<td></td>
-<td>X</td>
-</tr>
 </tbody>
 </table>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <p>The step depends on the following Jenkins plugins</p>
 <ul>
+<li><a href="https://plugins.jenkins.io/credentials-binding">credentials-binding</a></li>
 <li><a href="https://plugins.jenkins.io/pipeline-utility-steps">pipeline-utility-steps</a></li>
 <li><a href="https://plugins.jenkins.io/workflow-basic-steps">workflow-basic-steps</a></li>
 <li><a href="https://plugins.jenkins.io/workflow-cps-global-lib">workflow-cps-global-lib</a></li>
@@ -1582,15 +1570,12 @@
 <p>Consider using the <a href="https://cloud.docker.com/u/ppiper/repository/docker/ppiper/jenkins-master">ppiper/jenkins-master</a>
 docker image. This images comes with preinstalled plugins.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="n">withCredentials</span><span class="o">([</span><span class="n">usernamePassword</span><span class="o">(</span><span class="nl">credentialsId:</span> <span class="s1">&#39;myCredentialsId&#39;</span><span class="o">,</span> <span class="nl">usernameVariable:</span> <span class="s1">&#39;USER&#39;</span><span class="o">,</span> <span class="nl">passwordVariable:</span> <span class="s1">&#39;PASSWORD&#39;</span><span class="o">)])</span> <span class="o">{</span>
-    <span class="n">abapEnvironmentPullGitRepo</span><span class="o">(</span>
-        <span class="n">host</span> <span class="o">:</span> <span class="s1">&#39; 1234-abcd-5678-efgh-ijk.abap.eu10.hana.ondemand.com&#39;</span><span class="o">,</span>
-        <span class="n">repositoryName</span> <span class="o">:</span> <span class="s1">&#39;/DMO/GIT_REPOSITORY&#39;</span><span class="o">,</span>
-        <span class="n">username</span> <span class="o">:</span> <span class="s2">&quot;\$USER&quot;</span><span class="o">,</span>
-        <span class="n">password</span> <span class="o">:</span> <span class="s2">&quot;\$PASSWORD&quot;</span><span class="o">,</span>
-        <span class="n">script</span> <span class="o">:</span> <span class="k">this</span>
-    <span class="o">)</span>
-<span class="o">}</span>
+<div class="codehilite"><pre><span></span><span class="n">abapEnvironmentPullGitRepo</span> <span class="o">(</span>
+    <span class="n">host</span> <span class="o">:</span> <span class="s1">&#39;1234-abcd-5678-efgh-ijk.abap.eu10.hana.ondemand.com&#39;</span><span class="o">,</span>
+    <span class="n">repositoryName</span> <span class="o">:</span> <span class="s1">&#39;/DMO/GIT_REPOSITORY&#39;</span><span class="o">,</span>
+    <span class="n">credentialsId</span> <span class="o">:</span> <span class="s2">&quot;myCredentialsId&quot;</span><span class="o">,</span>
+    <span class="n">script</span> <span class="o">:</span> <span class="k">this</span>
+<span class="o">)</span>
 </pre></div>
                 
                   
