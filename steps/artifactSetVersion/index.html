@@ -1500,6 +1500,30 @@ If you require strict reproducibility of your builds, this should be used.</p>
 <td></td>
 </tr>
 <tr>
+<td><code>gitDisableSslVerification</code></td>
+<td>no</td>
+<td><code>false</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>gitHttpsCredentialsId</code></td>
+<td>no</td>
+<td><code>git</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>gitHttpsUrl</code></td>
+<td>for <code>gitPushMode</code> <code>HTTPS</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>gitPushMode</code></td>
+<td>no</td>
+<td><code>SSH</code></td>
+<td>'SSH', 'HTTPS', 'NONE'</td>
+</tr>
+<tr>
 <td><code>gitSshKeyCredentialsId</code></td>
 <td>no</td>
 <td>``</td>
@@ -1507,7 +1531,7 @@ If you require strict reproducibility of your builds, this should be used.</p>
 </tr>
 <tr>
 <td><code>gitSshUrl</code></td>
-<td>yes</td>
+<td>for <code>gitPushMode</code> <code>SSH</code></td>
 <td></td>
 <td></td>
 </tr>
@@ -1548,6 +1572,12 @@ If you require strict reproducibility of your builds, this should be used.</p>
 <td></td>
 </tr>
 <tr>
+<td><code>verbose</code></td>
+<td>no</td>
+<td><code>false</code></td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+<tr>
 <td><code>versioningTemplate</code></td>
 <td>no</td>
 <td>buildTool=<code>dub</code>:<code>${version}-${timestamp}${commitId?"+"+commitId:""}</code><br />buildTool=<code>docker</code>:<code>${version}-${timestamp}${commitId?"_"+commitId:""}</code><br />buildTool=<code>golang</code>:<code>${version}-${timestamp}${commitId?"+"+commitId:""}</code><br />buildTool=<code>maven</code>:<code>${version}-${timestamp}${commitId?"_"+commitId:""}</code><br />buildTool=<code>mta</code>:<code>${version}-${timestamp}${commitId?"+"+commitId:""}</code><br />buildTool=<code>npm</code>:<code>${version}-${timestamp}${commitId?"+"+commitId:""}</code><br />buildTool=<code>pip</code>:<code>${version}.${timestamp}${commitId?"."+commitId:""}</code><br />buildTool=<code>sbt</code>:<code>${version}-${timestamp}${commitId?"+"+commitId:""}</code></td>
@@ -1562,14 +1592,19 @@ If you require strict reproducibility of your builds, this should be used.</p>
 <li><code>dockerVersionSource</code> - Specifies the source to be used for the main version which is used for generating the automatic version. * This can either be the version of the base image - as retrieved from the <code>FROM</code> statement within the Dockerfile, e.g. <code>FROM jenkins:2.46.2</code> * Alternatively the name of an environment variable defined in the Docker image can be used which contains the version number, e.g. <code>ENV MY_VERSION 1.2.3</code> * The third option <code>appVersion</code> applies only to the artifactType <code>appContainer</code>. Here the version of the app which is packaged into the container will be used as version for the container itself.</li>
 <li><code>filePath</code> - Defines a custom path to the descriptor file.</li>
 <li><code>gitCommitId</code> - Defines the version prefix of the automatically generated version. By default it will take the long commitId hash. You could pass any other string (e.g. the short commitId hash) to be used. In case you don't want to have the gitCommitId added to the automatic versioning string you could set the value to an empty string: <code>''</code>.</li>
+<li><code>gitDisableSslVerification</code> - Disables the ssl verification for git push. Intended to be used only for troubleshooting. Productive usage is not recommanded.</li>
+<li><code>gitHttpsCredentialsId</code> - </li>
+<li><code>gitHttpsUrl</code> - Defines the git https url to the source code repository. Used in conjunction with 'GitPushMode.HTTPS'.</li>
+<li><code>gitPushMode</code> - Controls which protocol is used for performing push operation to remote repo. Required credentials needs to be configured ('gitSshKeyCredentialsId'/'TBD'). Push is only performed in case 'commitVersion' is set to 'true'.</li>
 <li><code>gitSshKeyCredentialsId</code> - Defines the ssh git credentials to be used for writing the tag.</li>
-<li><code>gitSshUrl</code> - Defines the git ssh url to the source code repository.</li>
+<li><code>gitSshUrl</code> - Defines the git ssh url to the source code repository. Used in conjunction with 'GitPushMode.SSH'.</li>
 <li><code>gitUserEMail</code> - Allows to overwrite the global git setting 'user.email' available on your Jenkins server.</li>
 <li><code>gitUserName</code> - Allows to overwrite the global git setting 'user.name' available on your Jenkins server.</li>
 <li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
 <li><code>tagPrefix</code> - Defines the prefix which is used for the git tag which is written during the versioning run.</li>
 <li><code>timestamp</code> - Defines the timestamp to be used in the automatic version string. You could overwrite the default behavior by explicitly setting this string.</li>
 <li><code>timestampTemplate</code> - Defines the template for the timestamp which will be part of the created version.</li>
+<li><code>verbose</code> - Prints some more information for troubleshooting. May reveal security relevant information. Usage is recommanded for troubleshooting only. Productive usage is not recommended.</li>
 <li><code>versioningTemplate</code> - Defines the template for the automatic version which will be created.</li>
 </ul>
 <h2 id="step-configuration">Step configuration<a class="headerlink" href="#step-configuration" title="Permanent link">&para;</a></h2>
@@ -1615,6 +1650,26 @@ If you require strict reproducibility of your builds, this should be used.</p>
 <td></td>
 </tr>
 <tr>
+<td><code>gitDisableSslVerification</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>gitHttpsCredentialsId</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>gitHttpsUrl</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>gitPushMode</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
 <td><code>gitSshKeyCredentialsId</code></td>
 <td></td>
 <td>X</td>
@@ -1655,6 +1710,11 @@ If you require strict reproducibility of your builds, this should be used.</p>
 <td>X</td>
 </tr>
 <tr>
+<td><code>verbose</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
 <td><code>versioningTemplate</code></td>
 <td></td>
 <td>X</td>
@@ -1664,6 +1724,7 @@ If you require strict reproducibility of your builds, this should be used.</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <p>The step depends on the following Jenkins plugins</p>
 <ul>
+<li><a href="https://plugins.jenkins.io/credentials-binding">credentials-binding</a></li>
 <li><a href="https://plugins.jenkins.io/docker">docker</a></li>
 <li><a href="https://plugins.jenkins.io/kubernetes">kubernetes</a></li>
 <li><a href="https://plugins.jenkins.io/pipeline-utility-steps">pipeline-utility-steps</a></li>
