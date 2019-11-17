@@ -1521,7 +1521,7 @@
 </table>
 <ul>
 <li><code>defines</code> - Additional properties.</li>
-<li><code>dockerImage</code> - Name of the docker image that should be used. If empty, Docker is not used and the command is executed directly on the Jenkins system.</li>
+<li><code>dockerImage</code> - Name of the docker image that should be used. Configure with empty value to execute the command directly on the Jenkins system (not using a container). Omit to use the default image (cf. <a href="https://github.com/SAP/jenkins-library/blob/master/resources/default_pipeline_environment.yml">default_pipeline_environment.yml</a>) Overwrite to use custom Docker image.</li>
 <li><code>dockerOptions</code> - Docker options to be set when starting the container (List or String).</li>
 <li><code>flags</code> - Flags to provide when running mvn.</li>
 <li><code>globalSettingsFile</code> - Path or url to the mvn settings file that should be used as global settings file.</li>

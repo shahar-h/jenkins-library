@@ -1642,7 +1642,7 @@ Proxy environment variables defined on the Jenkins machine are also available in
 <li><code>containerPortMappings</code> - Map which defines per docker image the port mappings, e.g. <code>containerPortMappings: ['selenium/standalone-chrome': [[name: 'selPort', containerPort: 4444, hostPort: 4444]]]</code>.</li>
 <li><code>containerShell</code> - Kubernetes only: Allows to specify the shell to be used for execution of commands.</li>
 <li><code>dockerEnvVars</code> - Environment variables to set in the container, e.g. [http_proxy: 'proxy:8080'].</li>
-<li><code>dockerImage</code> - Name of the docker image that should be used. If empty, Docker is not used and the command is executed directly on the Jenkins system.</li>
+<li><code>dockerImage</code> - Name of the docker image that should be used. Configure with empty value to execute the command directly on the Jenkins system (not using a container). Omit to use the default image (cf. <a href="https://github.com/SAP/jenkins-library/blob/master/resources/default_pipeline_environment.yml">default_pipeline_environment.yml</a>) Overwrite to use custom Docker image.</li>
 <li><code>dockerName</code> - Kubernetes only: Name of the container launching <code>dockerImage</code>. SideCar only: Name of the container in local network.</li>
 <li><code>dockerOptions</code> - Docker options to be set when starting the container (List or String).</li>
 <li><code>dockerPullImage</code> - Set this to 'false' to bypass a docker image pull. Usefull during development process. Allows testing of images which are available in the local registry only.</li>

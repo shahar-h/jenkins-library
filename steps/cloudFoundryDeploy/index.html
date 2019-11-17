@@ -1642,7 +1642,7 @@ You can find details in the <a href="https://docs.cloudfoundry.org/devguide/depl
 <li><code>cloudFoundry/space</code> - Cloud Foundry target space.</li>
 <li><code>deployTool</code> - Defines the tool which should be used for deployment.</li>
 <li><code>deployType</code> - Defines the type of deployment, either <code>standard</code> deployment which results in a system downtime or a zero-downtime <code>blue-green</code> deployment.</li>
-<li><code>dockerImage</code> - Name of the docker image that should be used. If empty, Docker is not used and the command is executed directly on the Jenkins system.</li>
+<li><code>dockerImage</code> - Name of the docker image that should be used. Configure with empty value to execute the command directly on the Jenkins system (not using a container). Omit to use the default image (cf. <a href="https://github.com/SAP/jenkins-library/blob/master/resources/default_pipeline_environment.yml">default_pipeline_environment.yml</a>) Overwrite to use custom Docker image.</li>
 <li><code>dockerWorkspace</code> - Kubernetes only: Specifies a dedicated user home directory for the container which will be passed as value for environment variable <code>HOME</code>.</li>
 <li><code>keepOldInstance</code> - In case of a <code>blue-green</code> deployment the old instance will be deleted by default. If this option is set to true the old instance will remain stopped in the Cloud Foundry space.</li>
 <li><code>loginParameters</code> - Addition command line options for cf login command. No escaping/quoting is performed. Not recommanded for productive environments.</li>
