@@ -1599,8 +1599,9 @@
 <span class="n">fioriOnCloudPlatformPipeline</span> <span class="nl">script:</span><span class="k">this</span>
 </pre></div>
 
+<p><code>fioriOnCloudPlatform</code> is a so called <em>scenario step</em> that wraps the <a href="https://sap.github.io/jenkins-library/steps/mtaBuild/">mtaBuild</a> and the <a href="https://sap.github.io/jenkins-library/steps/neoDeploy/">neoDeploy</a> steps.</p>
 <h3 id="configuration-pipelineconfigyml">Configuration (<code>.pipeline/config.yml</code>)<a class="headerlink" href="#configuration-pipelineconfigyml" title="Permanent link">&para;</a></h3>
-<p>This is a basic configuration example, which is also located in the sources of the project.</p>
+<p>This is a basic configuration example, which is also located in the sources of the project. The configuration corresponds to the steps wrapped in <code>fioriOnCloudPlatformPipeline</code>.</p>
 <div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">steps</span><span class="p p-Indicator">:</span>
   <span class="l l-Scalar l-Scalar-Plain">mtaBuild</span><span class="p p-Indicator">:</span>
     <span class="l l-Scalar l-Scalar-Plain">buildTarget</span><span class="p p-Indicator">:</span> <span class="s">&#39;NEO&#39;</span>
