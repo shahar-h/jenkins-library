@@ -147,6 +147,15 @@ func ProcessMetaFiles(metadataFiles []string, openFile func(s string) (io.ReadCl
 		test := stepTestTemplate(myStepInfo)
 		err = writeFile(fmt.Sprintf("cmd/%v_generated_test.go", stepData.Metadata.Name), test, 0644)
 		checkError(err)
+
+		if _, err := os.Stat(fmt.Sprintf("cmd/%v.go", stepData.Metadata.Name)); os.IsNotExist(err) {
+			err = writeFile(fmt.Sprintf("cmd/%v.go", stepData.Metadata.Name), stepSkeleton(myStepInfo), 0644)
+			checkError(err)
+		}
+		if _, err := os.Stat(fmt.Sprintf("cmd/%v_test.go", stepData.Metadata.Name)); os.IsNotExist(err) {
+			//err = writeFile(fmt.Sprintf("cmd/%v_test.go", stepData.Metadata.Name), stepTestSkeleton(myStepInfo), 0644)
+			//checkError(err)
+		}
 	}
 	return nil
 }
@@ -266,6 +275,25 @@ func stepTestTemplate(myStepInfo stepInfo) []byte {
 	}
 
 	tmpl, err := template.New("stepTest").Funcs(funcMap).Parse(stepTestGoTemplate)
+	checkError(err)
+
+	var generatedCode bytes.Buffer
+	err = tmpl.Execute(&generatedCode, myStepInfo)
+	checkError(err)
+
+	return generatedCode.Bytes()
+}
+
+func stepSkeleton(myStepInfo stepInfo) []byte {
+
+	funcMap := template.FuncMap{
+		"flagType":   flagType,
+		"golangName": golangName,
+		"title":      strings.Title,
+		"longName":   longName,
+	}
+
+	tmpl, err := template.New("step").Funcs(funcMap).ParseFile()
 	checkError(err)
 
 	var generatedCode bytes.Buffer

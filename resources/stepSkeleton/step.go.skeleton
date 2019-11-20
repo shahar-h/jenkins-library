@@ -1,0 +1,17 @@
+package cmd
+
+import (
+	"log"
+
+	"github.com/SAP/jenkins-library/pkg/command"
+)
+
+func testStep(options {{ .StepName }}Options) error {
+	c := command.Command{}
+	run(options, &c)
+	return nil
+}
+
+func run(options {{ .StepName }}Options, command execRunner) {
+	log.Fatal("Implementation missing")
+}
