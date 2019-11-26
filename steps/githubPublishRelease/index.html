@@ -893,6 +893,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#details" title="Details" class="md-nav__link">
+    Details
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#we-recommend-to-define-values-of-step-parameters-via-configyml-file" title="We recommend to define values of step parameters via config.yml file." class="md-nav__link">
     We recommend to define values of step parameters via config.yml file.
   </a>
@@ -1396,6 +1403,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#details" title="Details" class="md-nav__link">
+    Details
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#we-recommend-to-define-values-of-step-parameters-via-configyml-file" title="We recommend to define values of step parameters via config.yml file." class="md-nav__link">
     We recommend to define values of step parameters via config.yml file.
   </a>
@@ -1540,104 +1554,26 @@
 <td><nil></td>
 <td></td>
 </tr>
-<tr>
-<td>## Details</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>* <code>addClosedIssues</code> :  If set to <code>true</code>, closed issues and merged pull-requests since the last release will added below the <code>releaseBodyHeader</code></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>* <code>addDeltaToLastRelease</code> :  If set to <code>true</code>, a link will be added to the relese information that brings up all commits since the last release.</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>* <code>apiUrl</code> :  Set the GitHub API url.</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>* <code>assetPath</code> :  Path to a release asset which should be uploaded to the list of release assets.</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>* <code>commitish</code> :  Target git commitish for the release</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>* <code>excludeLabels</code> :  Allows to exclude issues with dedicated list of labels.</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>* <code>githubTokenCredentialsId</code> :  Jenkins 'Secret text' credentials ID containing token to authenticate to GitHub.</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>* <code>labels</code> :  Labels to include in issue search.</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>* <code>owner</code> :  Set the GitHub organization.</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>* <code>releaseBodyHeader</code> :  Content which will appear for the release.</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>* <code>repository</code> :  Set the GitHub repository.</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>* <code>serverUrl</code> :  GitHub server url for end-user access.</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>* <code>token</code> :  GitHub personal access token as per https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>* <code>uploadUrl</code> :  Set the GitHub API url.</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>* <code>version</code> :  Define the version number which will be written as tag as well as release name.</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
 </tbody>
 </table>
+<h2 id="details">Details<a class="headerlink" href="#details" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>addClosedIssues</code> :  If set to <code>true</code>, closed issues and merged pull-requests since the last release will added below the <code>releaseBodyHeader</code> </li>
+<li><code>addDeltaToLastRelease</code> :  If set to <code>true</code>, a link will be added to the relese information that brings up all commits since the last release. </li>
+<li><code>apiUrl</code> :  Set the GitHub API url. </li>
+<li><code>assetPath</code> :  Path to a release asset which should be uploaded to the list of release assets. </li>
+<li><code>commitish</code> :  Target git commitish for the release </li>
+<li><code>excludeLabels</code> :  Allows to exclude issues with dedicated list of labels. </li>
+<li><code>githubTokenCredentialsId</code> :  Jenkins 'Secret text' credentials ID containing token to authenticate to GitHub. </li>
+<li><code>labels</code> :  Labels to include in issue search. </li>
+<li><code>owner</code> :  Set the GitHub organization. </li>
+<li><code>releaseBodyHeader</code> :  Content which will appear for the release. </li>
+<li><code>repository</code> :  Set the GitHub repository. </li>
+<li><code>serverUrl</code> :  GitHub server url for end-user access. </li>
+<li><code>token</code> :  GitHub personal access token as per https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line </li>
+<li><code>uploadUrl</code> :  Set the GitHub API url. </li>
+<li><code>version</code> :  Define the version number which will be written as tag as well as release name. </li>
+</ul>
 <h2 id="we-recommend-to-define-values-of-step-parameters-via-configyml-file">We recommend to define values of step parameters via <a href="../../configuration/">config.yml file</a>.<a class="headerlink" href="#we-recommend-to-define-values-of-step-parameters-via-configyml-file" title="Permanent link">&para;</a></h2>
 <p>In following sections of the config.yml the configuration is possible:</p>
 <table>
