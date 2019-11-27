@@ -1576,14 +1576,14 @@
 </table>
 <ul>
 <li><code>customTlsCertificateLinks</code> - List containing download links of custom TLS certificates. This is required to ensure trusted connections to instances with custom certificates.</li>
-<li><code>disableInlineComments</code> - Pull-Request voting only: Disables the pull-request decoration with inline comments. deprecated: only supported in LTS / &lt; 7.2</li>
+<li><code>disableInlineComments</code> - Pull-Request voting only: Disables the pull-request decoration with inline comments. deprecated: only supported below SonarQube v7.2</li>
 <li><code>dockerImage</code> - Name of the docker image that should be used. If empty, Docker is not used and the command is executed directly on the Jenkins system. see <a href="../dockerExecute/">dockerExecute</a></li>
-<li><code>githubApiUrl</code> - Pull-Request voting only: The URL to the Github API. see <a href="https://docs.sonarqube.org/display/PLUG/GitHub+Plugin#GitHubPlugin-Usage">GitHub plugin docs</a> deprecated: only supported in LTS / &lt; 7.2</li>
+<li><code>githubApiUrl</code> - Pull-Request voting only: The URL to the Github API. see <a href="https://docs.sonarqube.org/display/PLUG/GitHub+Plugin#GitHubPlugin-Usage">GitHub plugin docs</a> deprecated: only supported below SonarQube v7.2</li>
 <li><code>githubOrg</code> - Pull-Request voting only: The Github organization. @default: <code>commonPipelineEnvironment.getGithubOrg()</code></li>
 <li><code>githubRepo</code> - Pull-Request voting only: The Github repository. @default: <code>commonPipelineEnvironment.getGithubRepo()</code></li>
-<li><code>githubTokenCredentialsId</code> - Pull-Request voting only: The Jenkins credentialId for a Github token. It is needed to report findings back to the pull-request. deprecated: only supported in LTS / &lt; 7.2</li>
+<li><code>githubTokenCredentialsId</code> - Pull-Request voting only: The Jenkins credentialId for a Github token. It is needed to report findings back to the pull-request. deprecated: only supported below SonarQube v7.2</li>
 <li><code>instance</code> - The name of the SonarQube instance defined in the Jenkins settings.</li>
-<li><code>legacyPRHandling</code> - Pull-Request voting only: Activates the pull-request handling using the <a href="https://docs.sonarqube.org/display/PLUG/GitHub+Plugin">GitHub Plugin</a> (deprecated). deprecated: only supported in LTS / &lt; 7.2</li>
+<li><code>legacyPRHandling</code> - Pull-Request voting only: Activates the pull-request handling using the <a href="https://docs.sonarqube.org/display/PLUG/GitHub+Plugin">GitHub Plugin</a> (deprecated). deprecated: only supported below SonarQube v7.2</li>
 <li><code>options</code> - A list of options which are passed to the <code>sonar-scanner</code>.</li>
 <li><code>organization</code> - Organization that the project will be assigned to in SonarCloud.io.</li>
 <li><code>projectVersion</code> - The project version that is reported to SonarQube. @default: major number of <code>commonPipelineEnvironment.getArtifactVersion()</code></li>
