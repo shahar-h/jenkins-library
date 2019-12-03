@@ -805,6 +805,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../cloudFoundryCreateServiceKey/" title="cloudFoundryCreateServiceKey" class="md-nav__link">
+      cloudFoundryCreateServiceKey
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../cloudFoundryDeploy/" title="cloudFoundryDeploy" class="md-nav__link">
       cloudFoundryDeploy
     </a>
@@ -1607,7 +1619,7 @@ If you require strict reproducibility of your builds, this should be used.</p>
 <li><code>gitDisableSslVerification</code> - Disables the ssl verification for git push. Intended to be used only for troubleshooting. Productive usage is not recommanded.</li>
 <li><code>gitHttpsCredentialsId</code> - </li>
 <li><code>gitHttpsUrl</code> - Defines the git https url to the source code repository. Used in conjunction with 'GitPushMode.HTTPS'.</li>
-<li><code>gitPushMode</code> - Controls which protocol is used for performing push operation to remote repo. Required credentials needs to be configured ('gitSshKeyCredentialsId'/'TBD'). Push is only performed in case 'commitVersion' is set to 'true'.</li>
+<li><code>gitPushMode</code> - Controls which protocol is used for performing push operation to remote repo. Required credentials needs to be configured ('gitSshKeyCredentialsId'/'gitHttpsCredentialsId'). Push is only performed in case 'commitVersion' is set to 'true'.</li>
 <li><code>gitSshKeyCredentialsId</code> - Defines the ssh git credentials to be used for writing the tag.</li>
 <li><code>gitSshUrl</code> - Defines the git ssh url to the source code repository. Used in conjunction with 'GitPushMode.SSH'.</li>
 <li><code>gitUserEMail</code> - Allows to overwrite the global git setting 'user.email' available on your Jenkins server.</li>
