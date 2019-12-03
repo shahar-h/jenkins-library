@@ -7,8 +7,11 @@ class MavenArtifactVersioning extends ArtifactVersioning {
 
     @Override
     def getVersion() {
-        def mavenPom = script.readMavenPom (file: configuration.filePath)
-        return mavenPom.getVersion().replaceAll(/-SNAPSHOT$/, "")
+        script.dockerExecute(script: script, dockerImage: 'maven:3-jdk-8') {
+            def version = script.sh script: 'mvn org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout', returnStdout: true
+            return version.replaceAll(/-SNAPSHOT$/, "")
+        }
+        error "Could not read maven version"
     }
 
     @Override
