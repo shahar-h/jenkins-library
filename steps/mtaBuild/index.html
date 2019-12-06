@@ -1577,6 +1577,12 @@
 <td></td>
 </tr>
 <tr>
+<td><code>mtarName</code></td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
 <td><code>platform</code></td>
 <td>no</td>
 <td><code>cf</code></td>
@@ -1608,6 +1614,7 @@
 <li><code>globalSettingsFile</code> - Path or url to the mvn settings file that should be used as global settings file.</li>
 <li><code>mtaBuildTool</code> - Tool to use when building the MTA</li>
 <li><code>mtaJarLocation</code> - The location of the SAP Multitarget Application Archive Builder jar file, including file name and extension. If you run on Docker, this must match the location of the jar file in the container as well.</li>
+<li><code>mtarName</code> - The name of the generated mtar file including its extension.</li>
 <li><code>platform</code> - mtaBuildTool cloudMbt only: The target platform to which the mtar can be deployed.</li>
 <li><code>projectSettingsFile</code> - Path or url to the mvn settings file that should be used as project settings file.</li>
 <li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
@@ -1676,6 +1683,11 @@
 </tr>
 <tr>
 <td><code>mtaJarLocation</code></td>
+<td></td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>mtarName</code></td>
 <td></td>
 <td>X</td>
 </tr>
