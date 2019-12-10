@@ -100,6 +100,8 @@ void call(Map parameters = [:]) {
 
         if(!fileExists(mtaPath)) {
             error("Mta file '${mtaPath}' does not exist.")
+        } else {
+            echo "[INFO] Mta file '${mtaPath}' found."
         }
 
         if (config.verbose) {
