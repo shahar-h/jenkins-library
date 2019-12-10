@@ -36,7 +36,7 @@
     
     
       
-        <title>Guided Tour - Project "Piper": Continuous Delivery for the SAP Ecosystem</title>
+        <title>Getting Started With Project "Piper" - Project "Piper": Continuous Delivery for the SAP Ecosystem</title>
       
     
     
@@ -126,7 +126,7 @@
                 Project "Piper": Continuous Delivery for the SAP Ecosystem
               </span>
               <span class="md-header-nav__topic">
-                Guided Tour
+                Getting Started With Project "Piper"
               </span>
             
           
@@ -264,11 +264,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Guided Tour
+        Getting Started With Project "Piper"
       </label>
     
-    <a href="./" title="Guided Tour" class="md-nav__link md-nav__link--active">
-      Guided Tour
+    <a href="./" title="Getting Started With Project "Piper"" class="md-nav__link md-nav__link--active">
+      Getting Started With Project "Piper"
     </a>
     
       
@@ -1585,28 +1585,37 @@ node() {
 <li>
 <p>Provide a name for your new item (for example, <em>My First Pipeline</em>) and select <strong>Multibranch Pipeline</strong>.
    <p align="center">
-   <img alt="Create Pipeline Job" src="../images/JenkinsNewItemPipeline-1.png" title="Jenkins New Item" />
-   </p></p>
+   <img alt="Create Pipeline Job" src="../images/JenkinsNewItemPipeline.png" title="Jenkins New Item" />
+   </p>
+   <strong>Note:</strong> The ready-made continuous delivery pipelines of project "Piper" must run as <strong>Multibranch Pipeline</strong>.</p>
 </li>
 <li>
-<p>For <strong>SCM</strong>, choose <strong>Git</strong>.</p>
-</li>
-<li>
-<p>For <strong>Repository URL</strong> in the <strong>Repositories</strong> section, enter the URL of your Git repository, for example <code>https://github.com/&lt;your-org&gt;/cloud-cf-helloworld-nodejs</code>. <strong>Note:</strong> If your repository is protected, you must provide your credentials in the <strong>Credentials</strong> section.
+<p>For <strong>Branch Sources</strong>, choose <strong>Add source</strong>, select <strong>Git</strong> as source repository.
    <p align="center">
-   <img alt="Create Pipeline Job" src="../images/JenkinsNewItemPipeline-2.png" title="Jenkins New Item" />
+   <img alt="Create Pipeline Job" src="../images/JenkinsNewItemPipeline-AddSource.png" title="Branch Sources - Add source" />
    </p></p>
 </li>
 <li>
-<p>For <strong>Branch Specifier</strong> in the <strong>Branches to build</strong> section, enter the branch name <code>*/1_REST_persist_in_Memory</code>.</p>
+<p>For <strong>Project Repository</strong> in the <strong>Git</strong> section, enter the URL of your Git repository, for example <code>https://github.com/&lt;your-org&gt;/cloud-cf-helloworld-nodejs</code>. <strong>Note:</strong> If your repository is protected, you must provide your credentials in <strong>Credentials</strong>.</p>
 </li>
 <li>
-<p>Choose <strong>Save</strong>.</p>
+<p>For <strong>Discover branches</strong>, choose <strong>Add</strong> and <strong>Filter by name (with wildcards)</strong>.
+   <p align="center">
+   <img alt="Create Pipeline Job" src="../images/JenkinsNewItemPipeline-DiscoverBranch.png" title="Discover branches - Add" />
+   </p>
+   A multibranch pipeline can execute different Jenkinsfiles for different branches. In this case, however, configure the pipeline of a single branch only.</p>
 </li>
 <li>
-<p>To run your pipeline, choose <strong>Build Now</strong> in the job UI. <strong>Result:</strong> The pipeline processed the single stage "prepare".</p>
+<p>For <strong>Include</strong> in the <strong>Filter by name</strong> section, enter the branch name <code>1_REST_persist_in_Memory</code>.
+   <p align="center">
+   <img alt="Create Pipeline Job" src="../images/JenkinsNewItemPipeline-FilterByName.png" title="Discover Branches - Filter By Name" />
+   </p></p>
+</li>
+<li>
+<p>Choose <strong>Save</strong>. <strong>Result:</strong> Jenkins scans the repository for branches and filters them according to the specified <strong>Includes</strong>. If the branch is detected, it is built.</p>
 </li>
 </ol>
+<p>For additional information about multibranch pipelines, please refer to the <a href="https://jenkins.io/doc/book/pipeline/multibranch/">Jenkins documentation</a>.</p>
 <h2 id="add-a-build-step">Add a Build Step<a class="headerlink" href="#add-a-build-step" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
@@ -1695,7 +1704,10 @@ steps:
    </p></p>
 <p>Open the application name to get into the <code>Application Overview</code>. Open the <strong>Application Route</strong> and add <code>/users</code> to the URL. <strong>Result:</strong> The application returns a list of user data.</p>
 <h2 id="whats-next">What's Next<a class="headerlink" href="#whats-next" title="Permanent link">&para;</a></h2>
-<p>You are now familiar with the basics of using project "Piper". Through the concept of pipeline as code, project "Piper" and Jenkins pipelines are extremely powerful. While Jenkins pipelines offer a full set of common programming features, project "Piper" adds SAP-specific flavors. Have a look at the different <strong>Scenarios</strong>  to understand how to easily integrate SAP systems with default pipelines. Browse the steadily increasing list of features you can implement through the project "Piper" <strong>Steps</strong>.</p>
+<p>You are now familiar with the basics of using project "Piper". Through the concept of pipeline as code, project "Piper" and Jenkins pipelines are extremely powerful. While Jenkins pipelines offer a full set of common programming features, project "Piper" adds SAP-specific flavors. Have a look at the different <strong>Scenarios</strong>  to understand how to easily integrate SAP systems with defaults.
+Dive into the ready-made continuous delivery pipelines: the <strong>General Purpose Pipeline</strong>
+and <strong>SAP Cloud SDK Pipeline</strong> help you quickly build and deliver your apps.
+Browse the steadily increasing list of features you can implement through the project "Piper" <strong>Steps</strong>.</p>
 <p>The <strong>Configuration</strong> pattern supports simple pipelines that can be reused by multiple applications. To understand the principles of inheritance and customization, have a look at the the <a href="../configuration/">configuration</a> documentation.</p>
 <p>Please also consult the blog post on setting up <a href="https://blogs.sap.com/2017/09/20/continuous-integration-and-delivery/">Continuous Delivery for S/4HANA extensions</a> and get tons of informations around the application development with the <a href="https://blogs.sap.com/2017/05/10/first-steps-with-sap-s4hana-cloud-sdk/">S/4HANA Cloud SDK</a>.</p>
                 
