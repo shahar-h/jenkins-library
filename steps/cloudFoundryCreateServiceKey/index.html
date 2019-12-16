@@ -1475,11 +1475,11 @@
                 
                 <h1 id="cloudfoundrycreateservicekey">cloudFoundryCreateServiceKey<a class="headerlink" href="#cloudfoundrycreateservicekey" title="Permanent link">&para;</a></h1>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h2>
-<p>Step that creates a service key for a service instancve on Cloud Foundry</p>
+<p>Step that creates a service key for a specified service instance on Cloud Foundry</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Cloud Foundry organization, space and deployment user are available</li>
-<li>Credentials for deployment have been configured in Jenkins with a dedicated Id</li>
+<li>Cloud Foundry API endpoint, organization, space, user and service instance are available</li>
+<li>Credentials have been configured in Jenkins with a dedicated Id</li>
 </ul>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
 <table>
@@ -1494,7 +1494,7 @@
 <tbody>
 <tr>
 <td><code>cloudFoundry/apiEndpoint</code></td>
-<td>no</td>
+<td>yes</td>
 <td></td>
 <td></td>
 </tr>
@@ -1649,16 +1649,16 @@ docker image. This images comes with preinstalled plugins.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
 <p>The following example creates a service key named "myServiceKey" for the service instance "myServiceInstance" in the provided cloud foundry organization and space. For the service key creation, the serviceKeyConfig is used.</p>
 <div class="codehilite"><pre><span></span><span class="n">cloudFoundryCreateServiceKey</span><span class="o">(</span>
-            <span class="nl">script:</span> <span class="k">this</span><span class="o">,</span>
-            <span class="nl">cloudFoundry:</span> <span class="o">[</span>
-                <span class="nl">apiEndpoint:</span> <span class="s1">&#39;https://test.server.com&#39;</span><span class="o">,</span>
-                <span class="nl">credentialsId:</span> <span class="s1">&#39;cfCredentialsId&#39;</span><span class="o">,</span>
-                <span class="nl">org:</span> <span class="s1">&#39;cfOrg&#39;</span><span class="o">,</span>
-                <span class="nl">space:</span> <span class="s1">&#39;cfSpace&#39;</span><span class="o">,</span>
-                <span class="nl">serviceInstance:</span> <span class="s1">&#39;myServiceInstance&#39;</span><span class="o">,</span>
-                <span class="nl">serviceKey:</span> <span class="s1">&#39;myServiceKey&#39;</span><span class="o">,</span>
-                <span class="nl">serviceKeyConfig:</span> <span class="s1">&#39;{ \&quot;key\&quot; : \&quot;value\&quot; }&#39;</span>
-            <span class="o">])</span>
+  <span class="nl">script:</span> <span class="k">this</span><span class="o">,</span>
+  <span class="nl">cloudFoundry:</span> <span class="o">[</span>
+      <span class="nl">apiEndpoint:</span> <span class="s1">&#39;https://test.server.com&#39;</span><span class="o">,</span>
+      <span class="nl">credentialsId:</span> <span class="s1">&#39;cfCredentialsId&#39;</span><span class="o">,</span>
+      <span class="nl">org:</span> <span class="s1">&#39;cfOrg&#39;</span><span class="o">,</span>
+      <span class="nl">space:</span> <span class="s1">&#39;cfSpace&#39;</span><span class="o">,</span>
+      <span class="nl">serviceInstance:</span> <span class="s1">&#39;myServiceInstance&#39;</span><span class="o">,</span>
+      <span class="nl">serviceKey:</span> <span class="s1">&#39;myServiceKey&#39;</span><span class="o">,</span>
+      <span class="nl">serviceKeyConfig:</span> <span class="s1">&#39;{ \&quot;key\&quot; : \&quot;value\&quot; }&#39;</span>
+  <span class="o">])</span>
 </pre></div>
                 
                   
