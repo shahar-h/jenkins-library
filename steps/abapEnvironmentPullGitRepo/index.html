@@ -1009,6 +1009,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../jenkinsMaterializeLog/" title="jenkinsMaterializeLog" class="md-nav__link">
+      jenkinsMaterializeLog
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../kanikoExecute/" title="kanikoExecute" class="md-nav__link">
       kanikoExecute
     </a>
@@ -1476,21 +1488,15 @@
                 <h1 id="abapenvironmentpullgitrepo">abapEnvironmentPullGitRepo<a class="headerlink" href="#abapenvironmentpullgitrepo" title="Permanent link">&para;</a></h1>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h2>
 <p>Pulls a Repository (Software Component) to a SAP Cloud Platform ABAP Environment system.</p>
+<p>This is either possible by providing the host and the credentialsId of the communication arrangement or by providing access to a service key for the communication arrangement SAP_COM_0510 on cloud foundry.</p>
 <div class="admonition note">
 <p class="admonition-title">Git Repository and Software Component</p>
 <p>In SAP Cloud Platform ABAP Environment Git repositories are wrapped in Software Components (which are managed in the App "Manage Software Components")
   Currently, those two names are used synonymous.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">User and Password</p>
-<p>In the future, we want to support the user / password creation via the create-service-key funcion of cloud foundry.
-   For this case, it is not possible to use the usual pattern with Jenkins Credentials.</p>
-</div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<ul>
-<li>A SAP Cloud Platform ABAP Environment system is available.</li>
-<li>On this system, a <a href="https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/0377adea0401467f939827242c1f4014.html">Communication User</a>, a <a href="https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/1bfe32ae08074b7186e375ab425fb114.html">Communication System</a> and a <a href="https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/a0771f6765f54e1c8193ad8582a32edb.html">Communication Arrangement</a> is setup for the Communication Scenario "SAP Cloud Platform ABAP Environment - Software Component Test Integration (SAP_COM_0510)".</li>
-</ul>
+<p>A SAP Cloud Platform ABAP Environment system is available.
+On this system, a <a href="https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/0377adea0401467f939827242c1f4014.html">Communication User</a>, a <a href="https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/1bfe32ae08074b7186e375ab425fb114.html">Communication System</a> and a <a href="https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/a0771f6765f54e1c8193ad8582a32edb.html">Communication Arrangement</a> is setup for the Communication Scenario "SAP Cloud Platform ABAP Environment - Software Component Test Integration (SAP_COM_0510)". This can be done manually through the respective applications on the SAP Cloud Platform ABAP Environment System or through creating a service key for the system on cloud foundry with the parameters {"scenario_id": "SAP_COM_0510", "type": "basic"}.</p>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1503,9 +1509,51 @@
 </thead>
 <tbody>
 <tr>
-<td><code>credentialsId</code></td>
-<td>yes</td>
+<td><code>cloudFoundry/apiEndpoint</code></td>
+<td>no</td>
 <td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>cloudFoundry/org</code></td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>cloudFoundry/serviceInstance</code></td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>cloudFoundry/serviceKey</code></td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>cloudFoundry/space</code></td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>credentialsId</code></td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>dockerImage</code></td>
+<td>no</td>
+<td><code>ppiper/cf-cli</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>dockerWorkspace</code></td>
+<td>no</td>
+<td><code>/home/piper</code></td>
 <td></td>
 </tr>
 <tr>
@@ -1515,19 +1563,7 @@
 <td></td>
 </tr>
 <tr>
-<td><code>host', 'Host not provided</code></td>
-<td>yes</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
 <td><code>repositoryName</code></td>
-<td>no</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>repositoryName', 'Repository / Software Component not provided</code></td>
 <td>yes</td>
 <td></td>
 <td></td>
@@ -1541,11 +1577,16 @@
 </tbody>
 </table>
 <ul>
+<li><code>cloudFoundry/apiEndpoint</code> - Cloud Foundry API endpoint.</li>
+<li><code>cloudFoundry/org</code> - Cloud Foundry target organization.</li>
+<li><code>cloudFoundry/serviceInstance</code> - Cloud Foundry service instance, for which the service key will be created.</li>
+<li><code>cloudFoundry/serviceKey</code> - Cloud Foundry service key, which will be created.</li>
+<li><code>cloudFoundry/space</code> - Cloud Foundry target space.</li>
 <li><code>credentialsId</code> - Jenkins CredentialsId containing the communication user and password of the communciation scenario SAP_COM_0510</li>
+<li><code>dockerImage</code> - Name of the docker image that should be used. Configure with empty value to execute the command directly on the Jenkins system (not using a container). Omit to use the default image (cf. <a href="https://github.com/SAP/jenkins-library/blob/master/resources/default_pipeline_environment.yml">default_pipeline_environment.yml</a>) Overwrite to use custom Docker image.</li>
+<li><code>dockerWorkspace</code> - Kubernetes only: Specifies a dedicated user home directory for the container which will be passed as value for environment variable <code>HOME</code>.</li>
 <li><code>host</code> - Specifies the host address of the SAP Cloud Platform ABAP Environment system</li>
-<li><code>host', 'Host not provided</code> - </li>
 <li><code>repositoryName</code> - Specifies the name of the Repository (Software Component) on the SAP Cloud Platform ABAP Environment system</li>
-<li><code>repositoryName', 'Repository / Software Component not provided</code> - </li>
 <li><code>script</code> - The common script environment of the Jenkinsfile running. Typically the reference to the script calling the pipeline step is provided with the <code>this</code> parameter, as in <code>script: this</code>. This allows the function to access the <code>commonPipelineEnvironment</code> for retrieving, e.g. configuration parameters.</li>
 </ul>
 <h2 id="step-configuration">Step configuration<a class="headerlink" href="#step-configuration" title="Permanent link">&para;</a></h2>
@@ -1561,8 +1602,43 @@
 </thead>
 <tbody>
 <tr>
+<td><code>cloudFoundry/apiEndpoint</code></td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>cloudFoundry/org</code></td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>cloudFoundry/serviceInstance</code></td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>cloudFoundry/serviceKey</code></td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>cloudFoundry/space</code></td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr>
 <td><code>credentialsId</code></td>
-<td></td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>dockerImage</code></td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr>
+<td><code>dockerWorkspace</code></td>
+<td>X</td>
 <td>X</td>
 </tr>
 <tr>
@@ -1571,19 +1647,9 @@
 <td>X</td>
 </tr>
 <tr>
-<td><code>host', 'Host not provided</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
 <td><code>repositoryName</code></td>
 <td>X</td>
 <td>X</td>
-</tr>
-<tr>
-<td><code>repositoryName', 'Repository / Software Component not provided</code></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><code>script</code></td>
@@ -1596,21 +1662,40 @@
 <p>The step depends on the following Jenkins plugins</p>
 <ul>
 <li><a href="https://plugins.jenkins.io/credentials-binding">credentials-binding</a></li>
+<li><a href="https://plugins.jenkins.io/docker">docker</a></li>
+<li><a href="https://plugins.jenkins.io/kubernetes">kubernetes</a></li>
 <li><a href="https://plugins.jenkins.io/pipeline-utility-steps">pipeline-utility-steps</a></li>
 <li><a href="https://plugins.jenkins.io/workflow-basic-steps">workflow-basic-steps</a></li>
 <li><a href="https://plugins.jenkins.io/workflow-cps-global-lib">workflow-cps-global-lib</a></li>
 <li><a href="https://plugins.jenkins.io/workflow-durable-task-step">workflow-durable-task-step</a></li>
 </ul>
-<p>Transitive dependencies are omitted.</p>
+<p>The kubernetes plugin is only used if running in a kubernetes environment.
+Transitive dependencies are omitted.</p>
 <p>The list might be incomplete.</p>
 <p>Consider using the <a href="https://cloud.docker.com/u/ppiper/repository/docker/ppiper/jenkins-master">ppiper/jenkins-master</a>
 docker image. This images comes with preinstalled plugins.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
+<p>In the first example, the host and the credentialsId of the Communication Arrangement are directly provided.</p>
 <div class="codehilite"><pre><span></span><span class="n">abapEnvironmentPullGitRepo</span> <span class="o">(</span>
-    <span class="n">host</span> <span class="o">:</span> <span class="s1">&#39;1234-abcd-5678-efgh-ijk.abap.eu10.hana.ondemand.com&#39;</span><span class="o">,</span>
-    <span class="n">repositoryName</span> <span class="o">:</span> <span class="s1">&#39;/DMO/GIT_REPOSITORY&#39;</span><span class="o">,</span>
-    <span class="n">credentialsId</span> <span class="o">:</span> <span class="s2">&quot;myCredentialsId&quot;</span><span class="o">,</span>
-    <span class="n">script</span> <span class="o">:</span> <span class="k">this</span>
+  <span class="n">host</span> <span class="o">:</span> <span class="s1">&#39;1234-abcd-5678-efgh-ijk.abap.eu10.hana.ondemand.com&#39;</span><span class="o">,</span>
+  <span class="n">repositoryName</span> <span class="o">:</span> <span class="s1">&#39;/DMO/GIT_REPOSITORY&#39;</span><span class="o">,</span>
+  <span class="n">credentialsId</span> <span class="o">:</span> <span class="s1">&#39;myCredentialsId&#39;</span><span class="o">,</span>
+  <span class="n">script</span> <span class="o">:</span> <span class="k">this</span>
+<span class="o">)</span>
+</pre></div>
+
+<p>In the second example, the host and credentialsId will be read from the provided cloud foundry service key of the specified service instance.</p>
+<div class="codehilite"><pre><span></span><span class="n">abapEnvironmentPullGitRepo</span> <span class="o">(</span>
+  <span class="nl">script:</span> <span class="k">this</span><span class="o">,</span>
+  <span class="n">repositoryName</span> <span class="o">:</span> <span class="s1">&#39;/DMO/GIT_REPOSITORY&#39;</span><span class="o">,</span>
+  <span class="nl">cloudFoundry:</span> <span class="o">[</span>
+      <span class="nl">apiEndpoint:</span> <span class="s1">&#39;https://test.server.com&#39;</span><span class="o">,</span>
+      <span class="nl">credentialsId:</span> <span class="s1">&#39;cfCredentialsId&#39;</span><span class="o">,</span>
+      <span class="nl">org:</span> <span class="s1">&#39;cfOrg&#39;</span><span class="o">,</span>
+      <span class="nl">space:</span> <span class="s1">&#39;cfSpace&#39;</span><span class="o">,</span>
+      <span class="nl">serviceInstance:</span> <span class="s1">&#39;cfServiceInstance&#39;</span><span class="o">,</span>
+      <span class="nl">serviceKey:</span> <span class="s1">&#39;cfServiceKey&#39;</span><span class="o">,</span>
+  <span class="o">]</span>
 <span class="o">)</span>
 </pre></div>
                 
