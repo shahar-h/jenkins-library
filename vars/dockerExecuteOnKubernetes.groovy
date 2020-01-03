@@ -142,7 +142,8 @@ import hudson.AbortException
      * * `workspace`: Pattern for stashing towards container
      * * `stashBack`: Pattern for bringing data from container back to Jenkins workspace. If not set: defaults to setting for `workspace`.
      */
-    'stashIncludes'
+    'stashIncludes',
+    'uniqueId'
 ])
 
 @Field Set PARAMETER_KEYS = STEP_CONFIG_KEYS
