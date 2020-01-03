@@ -144,10 +144,10 @@ import hudson.AbortException
      */
     'stashIncludes'
 ])
-@Field Set PARAMETER_KEYS = STEP_CONFIG_KEYS.minus([
-    'stashIncludes',
-    'stashExcludes'
-])
+// @Field Set PARAMETER_KEYS = STEP_CONFIG_KEYS.minus([
+//    'stashIncludes',
+//    'stashExcludes'
+//])
 
 /**
  * Executes a closure inside a container in a kubernetes pod.
