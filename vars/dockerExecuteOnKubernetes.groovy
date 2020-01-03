@@ -144,6 +144,8 @@ import hudson.AbortException
      */
     'stashIncludes'
 ])
+
+@Field Set PARAMETER_KEYS = STEP_CONFIG_KEYS
 // @Field Set PARAMETER_KEYS = STEP_CONFIG_KEYS.minus([
 //    'stashIncludes',
 //    'stashExcludes'
